@@ -1,4 +1,4 @@
-package com.grofin.base
+package com.grofin.base.extensions
 
 class Event<T : Any>(content: T?) {
     private val mContent: T

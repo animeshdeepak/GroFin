@@ -1,4 +1,4 @@
-package com.grofin.base
+package com.grofin.base.base
 
 import com.grofin.base.di.AppComponent
 import com.grofin.base.di.DaggerAppComponent
