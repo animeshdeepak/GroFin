@@ -1,6 +1,6 @@
 package com.grofin.base.di.module
 
-import androidx.fragment.app.Fragment
+import com.grofin.SplashFragment
 import com.grofin.base.di.qualifire.PerFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -9,5 +9,5 @@ import dagger.android.ContributesAndroidInjector
 internal abstract class FragmentModule {
     @ContributesAndroidInjector
     @PerFragment
-    abstract fun someFragment(): Fragment
+    abstract fun splashFragment(): SplashFragment
 }
