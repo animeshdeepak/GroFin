@@ -5,8 +5,8 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.grofin.base.base.BaseActivity
 
-class MainActivity : BaseActivity() {
-    override fun getLayoutId() = R.layout.activity_main
+class SplashActivity : BaseActivity() {
+    override fun getLayoutId() = R.layout.activity_splash
 
     override fun performTasksOnActivityCreated(savedInstanceState: Bundle?) {
         addFragment()

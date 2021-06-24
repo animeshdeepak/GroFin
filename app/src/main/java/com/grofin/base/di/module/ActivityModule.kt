@@ -1,6 +1,6 @@
 package com.grofin.base.di.module
 
-import com.grofin.MainActivity
+import com.grofin.SplashActivity
 import com.grofin.base.di.qualifire.ActivityScope
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -9,5 +9,5 @@ import dagger.android.ContributesAndroidInjector
 internal abstract class ActivityModule {
     @ContributesAndroidInjector
     @ActivityScope
-    abstract fun mainActivity(): MainActivity
+    abstract fun splashActivity(): SplashActivity
 }
