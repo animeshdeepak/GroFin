@@ -11,9 +11,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding, SplashViewModel>() {
 
     override fun performTasksOnActivityCreated(savedInstanceState: Bundle?) = Unit
 
-    override fun executeOnlyOnce() = showToastMessage("Great it worked :)")
-
-    override fun setObserver() {
-
+    override fun executeOnlyOnce() {
+        showToastMessage("Great it worked :)")
     }
 }

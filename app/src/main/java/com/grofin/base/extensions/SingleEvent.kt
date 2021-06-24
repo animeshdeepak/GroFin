@@ -1,6 +1,6 @@
 package com.grofin.base.extensions
 
-class Event<T : Any>(content: T?) {
+class SingleEvent<T : Any>(content: T?) {
     private val mContent: T
     private var hasBeenHandled = false
     val contentIfNotHandled: T?

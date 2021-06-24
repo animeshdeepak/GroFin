@@ -4,11 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
-import com.grofin.R
+import com.grofin.base.extensions.ApiStatus
+import com.grofin.base.extensions.SingleEvent
+import com.grofin.base.extensions.observe
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -17,13 +18,12 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : DaggerFr
     abstract fun getViewModelClass(): Class<VM>
     abstract fun performTasksOnActivityCreated(savedInstanceState: Bundle?)
     abstract fun executeOnlyOnce()
-    abstract fun setObserver()
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private lateinit var binding: VB
-    private lateinit var viewModel: VM
+    lateinit var binding: VB
+    lateinit var viewModel: VM
 
     private var hasBeenExecuted: Boolean = false
 
@@ -50,18 +50,34 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : DaggerFr
         setObserver()
         performTasksOnActivityCreated(savedInstanceState)
 
-        if (hasBeenExecuted) {
+        if (hasBeenExecuted)
             return
-        } else {
+        else {
             hasBeenExecuted = !hasBeenExecuted
             executeOnlyOnce()
         }
     }
 
-    fun showToastMessage(message: String?) {
-        if (message != null)
-            Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-        else
-            Toast.makeText(requireContext(), getString(R.string.no_msg_found), Toast.LENGTH_SHORT).show()
+    private fun setObserver() {
+        observe(viewModel.isLoading, ::loading)
     }
+
+    private fun loading(event: SingleEvent<ApiStatus>) {
+        event.contentIfNotHandled?.let {
+            when (it) {
+                ApiStatus.LOADING ->
+                    (requireActivity() as BaseActivity).progressBarVisibility(true)
+
+                ApiStatus.SUCCESS ->
+                    (requireActivity() as BaseActivity).progressBarVisibility(false)
+
+                ApiStatus.FAILURE ->
+                    (requireActivity() as BaseActivity).progressBarVisibility(false)
+            }
+        }
+    }
+
+    fun showToastMessage(message: String?) =
+        (requireActivity() as BaseActivity).showToastMessage(message)
+
 }
