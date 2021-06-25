@@ -3,6 +3,8 @@
     package="com.grofin">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="com.grofin.base.base.BaseApplication"
         android:allowBackup="true"

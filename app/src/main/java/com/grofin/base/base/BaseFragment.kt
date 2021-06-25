@@ -60,6 +60,7 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : DaggerFr
 
     private fun setObserver() {
         observe(viewModel.isLoading, ::loading)
+        observe(viewModel.errorMessage, ::errorMessage)
     }
 
     private fun loading(event: SingleEvent<ApiStatus>) {
@@ -74,6 +75,12 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : DaggerFr
                 ApiStatus.FAILURE ->
                     (requireActivity() as BaseActivity).progressBarVisibility(false)
             }
+        }
+    }
+
+    private fun errorMessage(event: SingleEvent<String>) {
+        event.contentIfNotHandled?.let {
+            showToastMessage(it)
         }
     }
 
