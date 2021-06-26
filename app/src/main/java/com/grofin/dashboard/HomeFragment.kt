@@ -1,6 +1,5 @@
 package com.grofin.dashboard
 
-import android.content.Intent
 import android.os.Bundle
 import com.grofin.R
 import com.grofin.base.base.BaseFragment
@@ -18,6 +17,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
     override fun executeOnlyOnce() {
         setUpObserver()
+        binding.btnClick.setOnClickListener {
+            viewModel.getSingleUser()
+        }
     }
 
     private fun setUpObserver() {
@@ -27,12 +29,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     private fun onUserSuccess(event: SingleEvent<User>) {
         event.contentIfNotHandled?.let {
             showToastMessage(it.data?.email)
-        }
-    }
-
-    private fun launchHomeActivity() {
-        Intent(requireActivity(), HomeActivity::class.java).also {
-            startActivity(it)
         }
     }
 }

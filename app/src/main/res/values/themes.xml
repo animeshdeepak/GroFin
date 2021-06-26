@@ -23,4 +23,9 @@
         <item name="backgroundTint">#FF287D93</item>
         <item name="cornerRadius">3dp</item>
     </style>
+
+    <style name="SplashScreenTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_theme</item>
+        <item name="android:statusBarColor">@color/white</item>
+    </style>
 </resources>

@@ -9,13 +9,15 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
+        android:padding="20dp"
         tools:context=".dashboard.HomeFragment">
 
-        <ImageView
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_click"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/dummy_logo"
-            tools:ignore="ContentDescription" />
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="click me" />
     </RelativeLayout>
 </layout>
