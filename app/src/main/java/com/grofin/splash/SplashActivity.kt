@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.grofin.R
 import com.grofin.base.base.BaseActivity
+import com.grofin.dashboard.HomeFragment
 
 class SplashActivity : BaseActivity() {
     override fun getLayoutId() = R.layout.activity_splash
@@ -14,7 +15,7 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun addFragment() {
-        val splashFragment = SplashFragment()
+        val splashFragment = HomeFragment()
         val fragmentManager: FragmentManager = supportFragmentManager
         val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.add(R.id.frame_layout, splashFragment).commit()

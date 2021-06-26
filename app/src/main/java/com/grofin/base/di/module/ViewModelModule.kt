@@ -2,7 +2,7 @@ package com.grofin.base.di.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.grofin.splash.SplashViewModel
+import com.grofin.dashboard.HomeViewModel
 import com.grofin.base.di.ViewModelFactory
 import com.grofin.base.di.qualifire.ViewModelKey
 import dagger.Binds
@@ -16,6 +16,6 @@ internal abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(SplashViewModel::class)
-    internal abstract fun bindsViewModel(viewModel: SplashViewModel): ViewModel
+    @ViewModelKey(HomeViewModel::class)
+    internal abstract fun bindsViewModel(viewModel: HomeViewModel): ViewModel
 }

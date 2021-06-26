@@ -1,25 +1,23 @@
-package com.grofin.splash
+package com.grofin.dashboard
 
+import android.content.Intent
 import android.os.Bundle
 import com.grofin.R
 import com.grofin.base.base.BaseFragment
 import com.grofin.base.extensions.SingleEvent
 import com.grofin.base.extensions.observe
-import com.grofin.databinding.FragmentSplashBinding
+import com.grofin.databinding.FragmentHomeBinding
 import com.grofin.request.User
 
-class SplashFragment : BaseFragment<FragmentSplashBinding, SplashViewModel>() {
-    override fun getLayoutId() = R.layout.fragment_splash
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
+    override fun getLayoutId() = R.layout.fragment_home
 
-    override fun getViewModelClass() = SplashViewModel::class.java
+    override fun getViewModelClass() = HomeViewModel::class.java
 
     override fun performTasksOnActivityCreated(savedInstanceState: Bundle?) = Unit
 
     override fun executeOnlyOnce() {
         setUpObserver()
-        binding.button.setOnClickListener {
-            viewModel.getSingleUser()
-        }
     }
 
     private fun setUpObserver() {
@@ -29,6 +27,12 @@ class SplashFragment : BaseFragment<FragmentSplashBinding, SplashViewModel>() {
     private fun onUserSuccess(event: SingleEvent<User>) {
         event.contentIfNotHandled?.let {
             showToastMessage(it.data?.email)
+        }
+    }
+
+    private fun launchHomeActivity() {
+        Intent(requireActivity(), HomeActivity::class.java).also {
+            startActivity(it)
         }
     }
 }
