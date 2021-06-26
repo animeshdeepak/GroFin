@@ -1,6 +1,6 @@
 package com.grofin.base.di.module
 
-import com.grofin.SplashFragment
+import com.grofin.splash.SplashFragment
 import com.grofin.base.di.qualifire.PerFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

@@ -1,6 +1,6 @@
 package com.grofin.base.di.module
 
-import com.grofin.SplashActivity
+import com.grofin.splash.SplashActivity
 import com.grofin.base.di.qualifire.ActivityScope
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

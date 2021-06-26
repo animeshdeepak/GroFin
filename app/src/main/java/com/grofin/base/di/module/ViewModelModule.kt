@@ -2,7 +2,7 @@ package com.grofin.base.di.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.grofin.SplashViewModel
+import com.grofin.splash.SplashViewModel
 import com.grofin.base.di.ViewModelFactory
 import com.grofin.base.di.qualifire.ViewModelKey
 import dagger.Binds

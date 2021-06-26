@@ -1,6 +1,7 @@
-package com.grofin
+package com.grofin.splash
 
 import android.os.Bundle
+import com.grofin.R
 import com.grofin.base.base.BaseFragment
 import com.grofin.base.extensions.SingleEvent
 import com.grofin.base.extensions.observe

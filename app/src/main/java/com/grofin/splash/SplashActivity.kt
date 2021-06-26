@@ -1,8 +1,9 @@
-package com.grofin
+package com.grofin.splash
 
 import android.os.Bundle
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.grofin.R
 import com.grofin.base.base.BaseActivity
 
 class SplashActivity : BaseActivity() {

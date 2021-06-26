@@ -1,4 +1,4 @@
-package com.grofin
+package com.grofin.splash
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
