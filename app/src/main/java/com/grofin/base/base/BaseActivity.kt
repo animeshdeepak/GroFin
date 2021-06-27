@@ -20,9 +20,11 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
 
     abstract fun getLayoutId(): Int
     abstract fun performTasksOnActivityCreated(savedInstanceState: Bundle?)
+    open fun setSplashScreen() = Unit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setSplashScreen()
         setContentView(getLayoutId())
         setUpProgressView()
         performTasksOnActivityCreated(savedInstanceState)
