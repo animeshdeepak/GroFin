@@ -33,10 +33,9 @@ fun String.showToast(context: Context) {
 
 //making timer like 12:00
 fun Long.getDurationString(): String {
-    val min = (this % 3600) / 60
     val sec = this % 60
 
-    return min.toInt().twoDigitString() + " : " + sec.toInt().twoDigitString()
+    return sec.toInt().twoDigitString()
 }
 
 private fun Int.twoDigitString(): String {

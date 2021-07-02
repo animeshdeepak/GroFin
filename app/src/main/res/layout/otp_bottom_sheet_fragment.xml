@@ -46,7 +46,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/et_otp"
                 android:layout_alignStart="@id/et_otp"
-                android:layout_marginTop="10dp"
                 android:text="@string/invalid_otp"
                 android:visibility="@{errorOTPVisibility ? View.VISIBLE : View.GONE}"
                 tools:visibility="visible" />
@@ -57,7 +56,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/et_otp"
                 android:layout_alignEnd="@id/et_otp"
-                android:layout_marginTop="10dp"
                 android:textColor="@color/purple_700"
                 tools:text="@string/resend" />
 
