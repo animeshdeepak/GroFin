@@ -1,4 +1,4 @@
-package com.grofin.dashboard
+package com.grofin.feature.dashboard
 
 import android.os.Bundle
 import com.grofin.R
@@ -6,7 +6,7 @@ import com.grofin.base.base.BaseFragment
 import com.grofin.base.extensions.SingleEvent
 import com.grofin.base.extensions.observe
 import com.grofin.databinding.FragmentHomeBinding
-import com.grofin.request.User
+import com.grofin.feature.request.User
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override fun getLayoutId() = R.layout.fragment_home

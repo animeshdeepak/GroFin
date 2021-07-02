@@ -1,4 +1,4 @@
-package com.grofin.dashboard
+package com.grofin.feature.dashboard
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,7 +6,7 @@ import com.grofin.base.base.BaseViewModel
 import com.grofin.base.extensions.ApiStatus
 import com.grofin.base.extensions.SingleEvent
 import com.grofin.base.repo.SplashRepo
-import com.grofin.request.User
+import com.grofin.feature.request.User
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 

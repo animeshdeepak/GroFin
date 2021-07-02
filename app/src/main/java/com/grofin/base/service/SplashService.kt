@@ -1,7 +1,7 @@
 package com.grofin.base.service
 
 import com.grofin.base.networking.AppApis
-import com.grofin.request.User
+import com.grofin.feature.request.User
 import io.reactivex.rxjava3.core.Single
 import javax.inject.Singleton
 

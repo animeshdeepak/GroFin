@@ -1,8 +1,8 @@
 package com.grofin.base.di.module
 
 import com.grofin.base.di.qualifire.ActivityScope
-import com.grofin.dashboard.HomeActivity
-import com.grofin.splash.SplashActivity
+import com.grofin.feature.dashboard.HomeActivity
+import com.grofin.feature.splash.SplashActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

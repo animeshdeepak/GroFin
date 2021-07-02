@@ -24,8 +24,9 @@
         <item name="cornerRadius">3dp</item>
     </style>
 
-    <style name="SplashScreenTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="android:windowBackground">@drawable/splash_theme</item>
-        <item name="android:statusBarColor">@color/white</item>
+    <!-- Error Text Appearance -->
+    <style name="EditTextErrorTheme" parent="Theme.MaterialComponents">
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textSize">14sp</item>
     </style>
 </resources>

@@ -1,4 +1,4 @@
-package com.grofin.request
+package com.grofin.feature.request
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
