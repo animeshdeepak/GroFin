@@ -14,10 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GroFin">
         <activity
-            android:name="com.grofin.feature.dashboard.HomeActivity"
+            android:name=".feature.dashboard.HomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.grofin.feature.splash.SplashActivity"
+            android:name=".feature.login.LoginRegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".feature.splash.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,4 +29,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

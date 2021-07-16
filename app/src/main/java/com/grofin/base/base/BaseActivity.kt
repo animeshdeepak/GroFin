@@ -3,6 +3,7 @@ package com.grofin.base.base
 import android.os.Bundle
 import android.widget.RelativeLayout
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -17,6 +18,7 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private lateinit var progressBarView: RelativeLayout
+    private var toolbar: Toolbar? = null
 
     abstract fun getLayoutId(): Int
     abstract fun performTasksOnActivityCreated(savedInstanceState: Bundle?)
@@ -24,6 +26,7 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
+        setUpToolbar()
         setUpProgressView()
         performTasksOnActivityCreated(savedInstanceState)
     }
@@ -49,5 +52,24 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
             progressBarView.show()
         else
             progressBarView.gone()
+    }
+
+    private fun setUpToolbar() {
+        toolbar = findViewById(R.id.topAppBar)
+
+        toolbar?.let {
+            setSupportActionBar(it)
+        }
+        supportActionBar?.setDisplayShowTitleEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        toolbar?.setNavigationOnClickListener {
+            onBackPressed()
+        }
+    }
+
+    fun setToolbarTitle(title: String) {
+        if (title.isNotEmpty())
+            supportActionBar?.title = title
     }
 }

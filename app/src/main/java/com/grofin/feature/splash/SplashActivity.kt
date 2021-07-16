@@ -6,7 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import com.grofin.R
 import com.grofin.base.base.BaseActivity
-import com.grofin.feature.dashboard.HomeActivity
+import com.grofin.feature.login.LoginRegisterActivity
 
 class SplashActivity : BaseActivity() {
     companion object {
@@ -22,7 +22,7 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun launchHomeActivity() {
-        Intent(this, HomeActivity::class.java).also {
+        Intent(this, LoginRegisterActivity::class.java).also {
             startActivity(it)
         }
         this.finish()

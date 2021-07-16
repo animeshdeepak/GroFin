@@ -7,6 +7,7 @@
     <string name="new_user_register">New user? Register</string>
     <string name="get_otp">GET OTP</string>
     <string name="invalid_mobile_no">Invalid Mobile No.</string>
+    <string name="title_login">LOGIN</string>
 
     <!-- OTP -->
     <string name="submit">SUBMIT</string>
@@ -17,5 +18,6 @@
     <!--    Register-->
     <string name="enter_referral">Enter Referral</string>
     <string name="referral_does_not_exist">referral does n\'t exist</string>
+    <string name="title_register">REGISTER</string>
 
 </resources>
