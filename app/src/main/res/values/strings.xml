@@ -9,8 +9,13 @@
     <string name="invalid_mobile_no">Invalid Mobile No.</string>
 
     <!-- OTP -->
-    <string name="login">LOGIN</string>
+    <string name="submit">SUBMIT</string>
     <string name="enter_otp">Enter Otp</string>
     <string name="resend">Resend</string>
     <string name="invalid_otp">Invalid OTP</string>
+
+    <!--    Register-->
+    <string name="enter_referral">Enter Referral</string>
+    <string name="referral_does_not_exist">referral does n\'t exist</string>
+
 </resources>

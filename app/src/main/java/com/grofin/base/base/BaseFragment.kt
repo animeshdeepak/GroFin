@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.grofin.base.extensions.ApiStatus
 import com.grofin.base.extensions.SingleEvent
 import com.grofin.base.extensions.observe
@@ -19,11 +20,15 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : DaggerFr
     abstract fun performTasksOnActivityCreated(savedInstanceState: Bundle?)
     abstract fun executeOnlyOnce()
 
+    abstract fun initViews()
+    abstract fun initListener()
+    abstract fun setUpObserver()
+
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    lateinit var binding: VB
-    lateinit var viewModel: VM
+    protected lateinit var binding: VB
+    protected lateinit var viewModel: VM
 
     private var hasBeenExecuted: Boolean = false
 
@@ -84,7 +89,9 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : DaggerFr
         }
     }
 
-    fun showToastMessage(message: String?) =
+    protected fun showToastMessage(message: String?) =
         (requireActivity() as BaseActivity).showToastMessage(message)
+
+    protected fun navController() = findNavController()
 
 }

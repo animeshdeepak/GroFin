@@ -16,14 +16,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     override fun performTasksOnActivityCreated(savedInstanceState: Bundle?) = Unit
 
     override fun executeOnlyOnce() {
-        setUpObserver()
+
+    }
+
+    override fun initViews() = Unit
+
+    override fun setUpObserver() {
+        observe(viewModel.apiUser, ::onUserSuccess)
+    }
+
+    override fun initListener() {
         binding.btnClick.setOnClickListener {
             viewModel.getSingleUser()
         }
-    }
-
-    private fun setUpObserver() {
-        observe(viewModel.apiUser, ::onUserSuccess)
     }
 
     private fun onUserSuccess(event: SingleEvent<User>) {

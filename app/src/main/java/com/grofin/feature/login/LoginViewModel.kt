@@ -6,4 +6,5 @@ import javax.inject.Inject
 
 class LoginViewModel @Inject constructor() : BaseViewModel() {
     var errorMobileVisibility = ObservableBoolean()
+    var errorReferralVisibility = ObservableBoolean()
 }
