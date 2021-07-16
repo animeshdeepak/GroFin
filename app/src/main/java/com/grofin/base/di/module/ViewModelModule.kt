@@ -6,6 +6,7 @@ import com.grofin.base.di.ViewModelFactory
 import com.grofin.base.di.qualifire.ViewModelKey
 import com.grofin.feature.dashboard.HomeViewModel
 import com.grofin.feature.login.LoginViewModel
+import com.grofin.feature.webview.WebViewViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -24,4 +25,9 @@ internal abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(LoginViewModel::class)
     internal abstract fun bindsLoginViewModel(viewModel: LoginViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(WebViewViewModel::class)
+    internal abstract fun bindsWebViewViewModel(viewModel: WebViewViewModel): ViewModel
 }

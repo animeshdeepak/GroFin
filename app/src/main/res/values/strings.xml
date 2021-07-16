@@ -20,4 +20,13 @@
     <string name="referral_does_not_exist">referral does n\'t exist</string>
     <string name="title_register">REGISTER</string>
 
+    <!--Home-->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_home">GROFIN</string>
+    <string name="drawer_faq">FAQ</string>
+    <string name="drawer_support">Support</string>
+    <string name="drawer_terms_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="drawer_about_us">About us</string>
+
 </resources>

@@ -29,4 +29,10 @@
         <item name="android:textColor">@color/red</item>
         <item name="android:textSize">14sp</item>
     </style>
+
+    <style name="navTextStyle" parent="@android:style/TextAppearance.Medium">
+        <item name="paddingStart">10dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>

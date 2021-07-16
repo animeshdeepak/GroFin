@@ -1,0 +1,41 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="webViewNotLoad"
+            type="androidx.databinding.ObservableBoolean" />
+
+        <variable
+            name="loader"
+            type="androidx.databinding.ObservableBoolean" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn_retry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Retry"
+            android:visibility="@{webViewNotLoad ? View.VISIBLE : View.GONE}" />
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{webViewNotLoad ? View.GONE : View.VISIBLE}"
+            tools:context="com.irdeto.kplus.presentation.feature.webview.WebViewFragment" />
+
+        <include
+            android:id="@+id/loader_web_view"
+            layout="@layout/progress_bar"
+            android:visibility="@{loader ? View.VISIBLE : View.GONE}" />
+    </RelativeLayout>
+</layout>
