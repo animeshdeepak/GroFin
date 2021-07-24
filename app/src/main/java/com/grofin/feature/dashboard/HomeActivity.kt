@@ -86,6 +86,7 @@ class HomeActivity : BaseActivity() {
             R.id.action_about_us -> showToastMessage("about us")
             R.id.action_support -> showToastMessage("support")
             R.id.action_tnc -> showToastMessage("tnc")
+            R.id.action_share -> showToastMessage("share")
         }
         drawer.closeDrawer(GravityCompat.START)
         return true
