@@ -28,5 +28,10 @@
     <string name="drawer_support">Support</string>
     <string name="drawer_terms_conditions"><![CDATA[Terms & Conditions]]></string>
     <string name="drawer_about_us">About us</string>
+    <string name="service_tab">Service</string>
+    <string name="rewards_tab">Rewards</string>
+    <string name="network_tab">Network</string>
+
+    <string name="under_development">Under Development!</string>
 
 </resources>

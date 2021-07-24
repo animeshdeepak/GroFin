@@ -2,11 +2,11 @@ package com.grofin.feature.webview
 
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
-import android.webkit.WebResourceError
-import android.webkit.WebResourceRequest
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.view.View
+import android.webkit.*
+import androidx.annotation.RequiresApi
 import com.grofin.R
 import com.grofin.base.base.BaseFragment
 import com.grofin.base.networking.Connectivity
@@ -46,14 +46,21 @@ class WebViewFragment : BaseFragment<FragmentWebViewBinding, WebViewViewModel>()
         initViews()
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("SetJavaScriptEnabled")
     override fun performTasksOnActivityCreated(savedInstanceState: Bundle?) {
         url = requireArguments().getString(URL, "")
         title = requireArguments().getString(TITLE, "")
 
         binding.webView.apply {
+            webChromeClient = WebChromeClient()
+
             loadWebUrl()
-            settings.javaScriptEnabled = true
+            settings.apply {
+                javaScriptEnabled = true
+                domStorageEnabled = true
+            }
+
             webViewClient = object : WebViewClient() {
                 override fun onPageFinished(view: WebView, url: String) {
                     super.onPageFinished(view, url)
