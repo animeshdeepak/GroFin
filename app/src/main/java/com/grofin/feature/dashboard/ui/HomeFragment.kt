@@ -75,16 +75,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     override fun initListener() {
-/*        binding.btnClick.setOnClickListener {
 //            viewModel.getSingleUser()
-            navController().currentDestination?.getAction(R.id.action_homeFragment_to_webViewFragment)?.let {
-                val bundle = bundleOf(
-                    WebViewFragment.URL to "https://pbci.policybazaar.com/?token=o5aMAq6qZ1tLXTODNpDyVbk4MP6pWDnq6hhpN5u%2BmyIG7xA%2BGMmR9D7FCxQclwCaoqKXPPWJIlkZ7rTBqJzm9SecvsJ2nKgDKG97hWUWRLLpx9eyVd3kgZB2nGDKOtMa",
-                    Constants.TOOLBAR_TITLE to "WebView"
-                )
-                navController().navigate(R.id.action_homeFragment_to_webViewFragment, bundle)
-            }
-        }*/
     }
 
     private fun onUserSuccess(event: SingleEvent<User>) {
