@@ -33,6 +33,9 @@
     <string name="rewards_tab">Rewards</string>
     <string name="network_tab">Network</string>
 
+    <!--service-->
+    <string name="title_motor">Motors</string>
+
     <string name="under_development">Under Development!</string>
 
 </resources>

@@ -12,14 +12,9 @@ import com.grofin.base.base.BaseFragment
 import com.grofin.base.networking.Connectivity
 import com.grofin.databinding.FragmentWebViewBinding
 import com.grofin.feature.dashboard.HomeActivity
+import com.grofin.feature.webview.WebViewActivity.Companion.WEB_VIEW_URL
 
 class WebViewFragment : BaseFragment<FragmentWebViewBinding, WebViewViewModel>() {
-
-    companion object {
-        const val URL = "url"
-        const val TITLE = "title"
-    }
-
     override fun getLayoutId() = R.layout.fragment_web_view
 
     override fun initViews() {
@@ -38,8 +33,6 @@ class WebViewFragment : BaseFragment<FragmentWebViewBinding, WebViewViewModel>()
     override fun getViewModelClass() = WebViewViewModel::class.java
 
     private var url: String? = null
-    private var title: String? = null
-
 
     override fun executeOnlyOnce() {
         initListener()
@@ -49,8 +42,7 @@ class WebViewFragment : BaseFragment<FragmentWebViewBinding, WebViewViewModel>()
     @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("SetJavaScriptEnabled")
     override fun performTasksOnActivityCreated(savedInstanceState: Bundle?) {
-        url = requireArguments().getString(URL, "")
-        title = requireArguments().getString(TITLE, "")
+        url = requireArguments().getString(WEB_VIEW_URL, "")
 
         binding.webView.apply {
             webChromeClient = WebChromeClient()

@@ -9,23 +9,5 @@
         android:id="@+id/homeFragment"
         android:name="com.grofin.feature.dashboard.ui.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home">
-        <action
-            android:id="@+id/action_homeFragment_to_webViewFragment"
-            app:destination="@id/webViewFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/webViewFragment"
-        android:name="com.grofin.feature.webview.WebViewFragment"
-        android:label="WebViewFragment"
-        tools:layout="@layout/fragment_web_view">
-        <argument
-            android:name="url"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="title"
-            app:argType="string"
-            app:nullable="true" />
-    </fragment>
+        tools:layout="@layout/fragment_home" />
 </navigation>
