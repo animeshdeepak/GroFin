@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.grofin.feature.dashboard.service.model.ServiceModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_item"
+        android:layout_width="100dp"
+        android:layout_height="110dp"
+        app:cardBackgroundColor="#8EB3E1"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_service"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:scaleType="fitCenter"
+                app:imageResource="@{item.imageResourceId}"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/motorcycle" />
+
+            <TextView
+                android:id="@+id/tv_service_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_service"
+                android:layout_centerHorizontal="true"
+                android:text="@{item.serviceName}"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                tools:text="Car" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
