@@ -21,15 +21,6 @@ class LoginRegisterActivity : BaseActivity() {
 
         val navGraph = navController.navInflater.inflate(R.navigation.login_register_nav_graph)
 
-        val bundle = bundleOf(
-            Constants.TOOLBAR_TITLE to getString(R.string.title_login)
-        )
-        navController.setGraph(navGraph, bundle)
-
-        navController.addOnDestinationChangedListener { _, _, arguments ->
-            arguments?.apply {
-                setToolbarTitle(getString(Constants.TOOLBAR_TITLE, ""))
-            }
-        }
+        navController.graph = navGraph
     }
 }

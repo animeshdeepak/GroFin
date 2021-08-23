@@ -34,7 +34,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp"
         android:maxLines="2"
-        android:textColor="@color/grey"
+        android:textColor="@color/grofin_grey"
         android:textSize="18sp"
         tools:text="animeshdeepak1@gmail.com" />
 </RelativeLayout>

@@ -9,6 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FFFF0000</color>
     <color name="light_red">#E62E2E</color>
-    <color name="grey">#8C8989</color>
     <color name="colorPrimary">#103880</color>
+    <color name="grofin_black">#262626</color>
+    <color name="grofin_grey">#F5F5F5</color>
+    <color name="grofin_blue">#178CEC</color>
+    <color name="grofin_green">#68D277</color>
 </resources>

@@ -31,7 +31,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
 
     override fun initListener() {
         binding.btnGetOtp.setOnClickListener {
-            binding.etMobile.editText?.let {
+            binding.etMobile.let {
                 if (it.text.toString().isMobileValid()) {
                     viewModel.errorMobileVisibility.set(false)
                     it.closeKeyboard()
@@ -57,7 +57,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
                 isCancelable = false
                 show(it, OTP_BOTTOM_SHEET)
                 onLoginClick = { otp ->
-                    callLoginAPI(binding.etMobile.editText?.text.toString(), otp)
+                    callLoginAPI(binding.etMobile.text.toString(), otp)
                 }
             }
         }

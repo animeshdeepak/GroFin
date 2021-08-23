@@ -6,16 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".feature.login.LoginRegisterActivity">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/common_toolbar" />
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/login_register_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
         app:defaultNavHost="true" />
 
     <include layout="@layout/progress_bar" />

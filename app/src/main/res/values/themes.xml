@@ -13,15 +13,15 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <!-- Global Background Theme. -->
-        <item name="android:windowBackground">@drawable/background_theme</item>
+        <!--        <item name="android:windowBackground">@drawable/background_theme</item>-->
         <!-- Button Theme. -->
         <item name="materialButtonStyle">@style/ThemeButton</item>
     </style>
 
     <style name="ThemeButton" parent="Widget.MaterialComponents.Button">
         <item name="android:textColor">@color/white</item>
-        <item name="backgroundTint">#FF287D93</item>
-        <item name="cornerRadius">3dp</item>
+        <item name="backgroundTint">@color/grofin_green</item>
+        <item name="cornerRadius">20dp</item>
     </style>
 
     <!-- Error Text Appearance -->

@@ -5,8 +5,8 @@
     <!--Login-->
     <string name="enter_mobile">Enter Mobile</string>
     <string name="new_user_register">New user? Register</string>
-    <string name="get_otp">GET OTP</string>
-    <string name="invalid_mobile_no">Invalid Mobile No.</string>
+    <string name="get_otp">Get OTP</string>
+    <string name="invalid_mobile_no">Invalid Mobile Number.</string>
     <string name="title_login">LOGIN</string>
 
     <!-- OTP -->
@@ -37,5 +37,6 @@
     <string name="title_motor">Motors</string>
 
     <string name="under_development">Under Development!</string>
+    <string name="enter_phone_number">Enter phone number</string>
 
 </resources>
