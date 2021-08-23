@@ -19,6 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/grofin_background"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:gravity="center_horizontal"
             android:padding="20dp"
             tools:context=".feature.login.LoginFragment">
@@ -85,9 +87,9 @@
                 android:layout_height="60dp"
                 android:layout_below="@id/tv_register"
                 android:layout_marginTop="20dp"
+                android:stateListAnimator="@null"
                 android:text="@string/get_otp"
                 android:textAllCaps="false"
-                android:stateListAnimator="@null"
                 android:textSize="16sp" />
         </RelativeLayout>
     </ScrollView>
