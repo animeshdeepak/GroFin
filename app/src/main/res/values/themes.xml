@@ -21,7 +21,7 @@
     <style name="ThemeButton" parent="Widget.MaterialComponents.Button">
         <item name="android:textColor">@color/white</item>
         <item name="backgroundTint">@color/grofin_green</item>
-        <item name="cornerRadius">20dp</item>
+        <item name="cornerRadius">30dp</item>
     </style>
 
     <!-- Error Text Appearance -->

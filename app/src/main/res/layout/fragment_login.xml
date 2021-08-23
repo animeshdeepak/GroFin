@@ -48,12 +48,12 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/edit_text_rounded"
                 android:gravity="center"
-                android:textCursorDrawable="@drawable/text_cursor_drawable"
                 android:hint="@string/enter_mobile"
                 android:importantForAutofill="no"
                 android:inputType="phone"
                 android:maxLength="10"
-                android:textColorHint="@color/grofin_blue" />
+                android:textColorHint="@color/grofin_blue"
+                android:textCursorDrawable="@drawable/text_cursor_drawable" />
 
             <TextView
                 android:id="@+id/et_mobile_error"
@@ -87,6 +87,7 @@
                 android:layout_marginTop="20dp"
                 android:text="@string/get_otp"
                 android:textAllCaps="false"
+                android:stateListAnimator="@null"
                 android:textSize="16sp" />
         </RelativeLayout>
     </ScrollView>
