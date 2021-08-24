@@ -6,6 +6,7 @@ import com.grofin.feature.dashboard.network.NetworkFragment
 import com.grofin.feature.dashboard.rewards.RewardsFragment
 import com.grofin.feature.dashboard.service.ServiceFragment
 import com.grofin.feature.login.LoginFragment
+import com.grofin.feature.login.OTPFragment
 import com.grofin.feature.register.RegisterFragment
 import com.grofin.feature.webview.WebViewFragment
 import dagger.Module
@@ -20,6 +21,10 @@ internal abstract class FragmentModule {
     @ContributesAndroidInjector
     @PerFragment
     abstract fun loginFragment(): LoginFragment
+
+    @ContributesAndroidInjector
+    @PerFragment
+    abstract fun otpFragment(): OTPFragment
 
     @ContributesAndroidInjector
     @PerFragment

@@ -7,7 +7,7 @@ import com.grofin.base.extensions.closeKeyboard
 import com.grofin.base.extensions.isMobileValid
 import com.grofin.databinding.FragmentRegisterBinding
 import com.grofin.feature.login.LoginViewModel
-import com.grofin.feature.login.OTPBottomSheetFragment
+import com.grofin.feature.login.OTPFragment
 
 class RegisterFragment : BaseFragment<FragmentRegisterBinding, LoginViewModel>() {
 
@@ -39,15 +39,15 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, LoginViewModel>()
     }
 
     private fun openBottomSheetFragment() {
-        childFragmentManager.let {
-            OTPBottomSheetFragment.newInstance(Bundle()).apply {
+/*        childFragmentManager.let {
+            OTPFragment.newInstance(Bundle()).apply {
                 isCancelable = false
-                show(it, OTPBottomSheetFragment.OTP_BOTTOM_SHEET)
+                show(it, OTPFragment.OTP_BOTTOM_SHEET)
                 onLoginClick = { otp ->
                     callLoginAPI(binding.etMobile.editText?.text.toString(), otp)
                 }
             }
-        }
+        }*/
     }
 
     private fun callLoginAPI(mobile: String, otp: String) {

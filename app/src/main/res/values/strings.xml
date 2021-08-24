@@ -11,9 +11,13 @@
 
     <!-- OTP -->
     <string name="submit">SUBMIT</string>
-    <string name="enter_otp">Enter Otp</string>
-    <string name="resend">Resend</string>
+    <string name="enter_otp_number">Enter OTP number</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="resend"><u>Resend</u></string>
     <string name="invalid_otp">Invalid OTP</string>
+    <string name="sms_otp_info_message">We have sent you a 6 digit OTP number via SMS on your phone</string>
+    <string name="did_not_receive_otp">Didn\'t receive OTP?</string>
+    <string name="verify">Verify</string>
 
     <!--    Register-->
     <string name="enter_referral">Enter Referral</string>

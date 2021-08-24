@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="errorOTPVisibility"
+            type="androidx.databinding.ObservableBoolean" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/grofin_background"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_horizontal"
+            android:padding="20dp">
+
+            <View
+                android:id="@+id/separator_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="340dp" />
+
+            <TextView
+                android:id="@+id/enter_phone_no_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/separator_view"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="@string/enter_otp_number"
+                android:textColor="@color/grofin_black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/otp_et"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/enter_phone_no_tv"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text_rounded"
+                android:cursorVisible="false"
+                android:gravity="center"
+                android:hint="@string/enter_otp"
+                android:importantForAutofill="no"
+                android:inputType="numberPassword"
+                android:letterSpacing="0.5"
+                android:longClickable="false"
+                android:maxLength="@integer/otp_length"
+                android:textColorHint="@color/grofin_blue" />
+
+            <TextView
+                android:id="@+id/otp_error_tv"
+                style="@style/EditTextErrorTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/otp_et"
+                android:layout_alignStart="@id/otp_et"
+                android:layout_marginStart="10dp"
+                android:text="@string/invalid_otp"
+                android:visibility="@{errorOTPVisibility ? View.VISIBLE : View.GONE}"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/sms_otp_message_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/otp_error_tv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:gravity="center_horizontal"
+                android:text="@string/sms_otp_info_message"
+                android:textColor="@color/grofin_black"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:id="@+id/container_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sms_otp_message_tv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp">
+
+                <TextView
+                    android:id="@+id/did_not_receive_otp_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/did_not_receive_otp"
+                    android:textColor="@color/grofin_black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/resend_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/resend"
+                    android:textColor="@color/grofin_blue"
+                    android:textSize="16sp"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/verify_btn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@id/container_ll"
+                android:layout_marginTop="20dp"
+                android:text="@string/verify" />
+
+            <!--            <TextView
+                            android:id="@+id/tv_counter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/et_otp"
+                            android:layout_alignEnd="@id/et_otp"
+                            android:textColor="@color/purple_700"
+                            tools:text="@string/resend" />-->
+
+        </RelativeLayout>
+    </ScrollView>
+</layout>

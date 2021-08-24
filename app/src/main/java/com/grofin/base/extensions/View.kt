@@ -27,9 +27,7 @@ fun View.invisible() {
     this.visibility = View.INVISIBLE
 }
 
-fun String.showToast(context: Context) {
-    Toast.makeText(context, this, Toast.LENGTH_SHORT).show()
-}
+fun String.showToast(context: Context) = Toast.makeText(context, this, Toast.LENGTH_SHORT).show()
 
 //making timer like 12:00
 fun Long.getDurationString(): String {
