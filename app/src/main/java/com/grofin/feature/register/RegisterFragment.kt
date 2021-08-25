@@ -27,7 +27,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, LoginViewModel>()
 
     override fun initListener() {
         binding.btnGetOtp.setOnClickListener {
-            binding.etMobile.editText?.let {
+            binding.etMobile.let {
                 if (it.text.toString().isMobileValid()) {
                     viewModel.errorMobileVisibility.set(false)
                     it.closeKeyboard()

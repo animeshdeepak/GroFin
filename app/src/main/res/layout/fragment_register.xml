@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -18,40 +17,50 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/grofin_background"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:gravity="center_horizontal"
-            android:padding="16dp"
-            tools:context=".feature.login.LoginFragment">
+            android:padding="20dp"
+            tools:context=".feature.register.RegisterFragment">
 
-            <ImageView
-                android:id="@+id/iv_logo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="60dp"
-                android:src="@drawable/grofin_logo"
-                tools:ignore="ContentDescription" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_mobile"
+            <View
+                android:id="@+id/separator_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/iv_logo"
-                android:hint="@string/enter_mobile"
-                app:prefixText="+91">
+                android:layout_marginTop="340dp" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:inputType="number"
-                    android:maxLength="10" />
-            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/enter_phone_no_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/separator_view"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="@string/enter_phone_number"
+                android:textColor="@color/grofin_black"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/enter_phone_no_tv"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edit_text_rounded"
+                android:gravity="center"
+                android:hint="@string/enter_mobile"
+                android:importantForAutofill="no"
+                android:inputType="phone"
+                android:letterSpacing="0.5"
+                android:maxLength="@integer/phone_number_length"
+                android:textColorHint="@color/grofin_blue"
+                android:textCursorDrawable="@drawable/text_cursor_drawable" />
 
             <TextView
                 android:id="@+id/et_mobile_error"
@@ -60,45 +69,60 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/et_mobile"
                 android:layout_alignStart="@id/et_mobile"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:text="@string/invalid_mobile_no"
                 android:visibility="@{errorMobileVisibility ? View.VISIBLE : View.GONE}"
                 tools:visibility="visible" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_referral"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/enter_referral_code_tv"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/et_mobile_error"
-                android:hint="@string/enter_referral">
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="@string/enter_referral_code"
+                android:textColor="@color/grofin_black"
+                android:textSize="16sp" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:inputType="number"
-                    android:maxLength="10" />
-            </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:id="@+id/referral_code_et"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/enter_referral_code_tv"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edit_text_rounded"
+                android:gravity="center"
+                android:hint="@string/enter_referral"
+                android:importantForAutofill="no"
+                android:inputType="phone"
+                android:letterSpacing="0.5"
+                android:maxLength="@integer/phone_number_length"
+                android:textColorHint="@color/grofin_blue"
+                android:textCursorDrawable="@drawable/text_cursor_drawable" />
 
             <TextView
                 android:id="@+id/et_referral_error"
                 style="@style/EditTextErrorTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/et_referral"
+                android:layout_below="@id/referral_code_et"
                 android:layout_alignStart="@id/et_mobile"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:text="@string/referral_does_not_exist"
                 android:visibility="@{errorReferralVisibility ? View.VISIBLE : View.GONE}"
                 tools:visibility="visible" />
 
-            <com.google.android.material.button.MaterialButton
+            <Button
                 android:id="@+id/btn_get_otp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_below="@id/et_referral_error"
-                android:layout_marginTop="20dp"
-                android:text="@string/get_otp" />
+                android:layout_marginTop="10dp"
+                android:text="@string/get_otp"
+                android:textStyle="bold" />
         </RelativeLayout>
     </ScrollView>
 </layout>

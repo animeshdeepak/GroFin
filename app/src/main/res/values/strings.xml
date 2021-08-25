@@ -20,9 +20,11 @@
     <string name="verify">Verify</string>
 
     <!--    Register-->
-    <string name="enter_referral">Enter Referral</string>
+    <string name="enter_referral_code">Enter Referral Code</string>
     <string name="referral_does_not_exist">referral does n\'t exist</string>
     <string name="title_register">REGISTER</string>
+    <string name="enter_referral">Enter Referral</string>
+
 
     <!--Home-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
