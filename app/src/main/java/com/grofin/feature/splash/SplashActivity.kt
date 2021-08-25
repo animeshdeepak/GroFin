@@ -25,6 +25,6 @@ class SplashActivity : BaseActivity() {
         Intent(this, LoginRegisterActivity::class.java).also {
             startActivity(it)
         }
-        this.finish()
+        finish()
     }
 }
