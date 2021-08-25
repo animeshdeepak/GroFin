@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:src="@drawable/grofin_logo"
+        android:src="@drawable/grofin_splash_logo"
         tools:ignore="ContentDescription" />
 
     <include layout="@layout/progress_bar" />
