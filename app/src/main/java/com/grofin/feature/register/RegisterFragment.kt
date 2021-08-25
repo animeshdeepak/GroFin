@@ -1,13 +1,14 @@
 package com.grofin.feature.register
 
 import android.os.Bundle
+import androidx.core.os.bundleOf
 import com.grofin.R
 import com.grofin.base.base.BaseFragment
+import com.grofin.base.constants.Constants
 import com.grofin.base.extensions.closeKeyboard
 import com.grofin.base.extensions.isMobileValid
 import com.grofin.databinding.FragmentRegisterBinding
 import com.grofin.feature.login.LoginViewModel
-import com.grofin.feature.login.OTPFragment
 
 class RegisterFragment : BaseFragment<FragmentRegisterBinding, LoginViewModel>() {
 
@@ -18,36 +19,36 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, LoginViewModel>()
     override fun performTasksOnActivityCreated(savedInstanceState: Bundle?) = Unit
 
     override fun executeOnlyOnce() {
-        binding.errorMobileVisibility = viewModel.errorMobileVisibility
-        binding.errorReferralVisibility = viewModel.errorReferralVisibility
+        initViews()
+        initListener()
     }
 
-    override fun initViews() = Unit
-    override fun setUpObserver() = Unit
+    override fun initViews() {
+        binding.errorMobileVisibility = viewModel.errorMobileVisibilityRegister
+        binding.errorReferralVisibility = viewModel.errorReferralVisibility
+    }
 
     override fun initListener() {
         binding.btnGetOtp.setOnClickListener {
             binding.etMobile.let {
                 if (it.text.toString().isMobileValid()) {
-                    viewModel.errorMobileVisibility.set(false)
+                    viewModel.errorMobileVisibilityRegister.set(false)
                     it.closeKeyboard()
-                    openBottomSheetFragment()
+                    navigateToLoginFragment()
                 } else
-                    viewModel.errorMobileVisibility.set(true)
+                    viewModel.errorMobileVisibilityRegister.set(true)
             }
         }
     }
 
-    private fun openBottomSheetFragment() {
-/*        childFragmentManager.let {
-            OTPFragment.newInstance(Bundle()).apply {
-                isCancelable = false
-                show(it, OTPFragment.OTP_BOTTOM_SHEET)
-                onLoginClick = { otp ->
-                    callLoginAPI(binding.etMobile.editText?.text.toString(), otp)
-                }
+    override fun setUpObserver() = Unit
+
+    private fun navigateToLoginFragment() {
+        navController().currentDestination?.getAction(R.id.action_global_OTPFragment)
+            ?.let {
+                val bundle = bundleOf(Constants.MOBILE_NUMBER to binding.etMobile.text.toString())
+                navController().navigate(R.id.action_global_OTPFragment, bundle)
             }
-        }*/
     }
 
     private fun callLoginAPI(mobile: String, otp: String) {

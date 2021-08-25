@@ -49,10 +49,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
     }
 
     private fun navigateToLoginFragment() {
-        navController().currentDestination?.getAction(R.id.action_loginFragment_to_OTPFragment)
+        navController().currentDestination?.getAction(R.id.action_global_OTPFragment)
             ?.let {
                 val bundle = bundleOf(Constants.MOBILE_NUMBER to binding.etMobile.text.toString())
-                navController().navigate(R.id.action_loginFragment_to_OTPFragment, bundle)
+                navController().navigate(R.id.action_global_OTPFragment, bundle)
             }
     }
 }
