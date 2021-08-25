@@ -40,8 +40,7 @@
                 android:layout_marginTop="20dp"
                 android:text="@string/enter_phone_number"
                 android:textColor="@color/grofin_black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/et_mobile"
@@ -51,10 +50,10 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/edit_text_rounded"
                 android:gravity="center"
-                android:letterSpacing="0.5"
                 android:hint="@string/enter_mobile"
                 android:importantForAutofill="no"
                 android:inputType="phone"
+                android:letterSpacing="0.5"
                 android:maxLength="@integer/phone_number_length"
                 android:textColorHint="@color/grofin_blue"
                 android:textCursorDrawable="@drawable/text_cursor_drawable" />
@@ -89,7 +88,8 @@
                 android:layout_height="60dp"
                 android:layout_below="@id/tv_register"
                 android:layout_marginTop="20dp"
-                android:text="@string/get_otp" />
+                android:text="@string/get_otp"
+                android:textStyle="bold"/>
         </RelativeLayout>
     </ScrollView>
 </layout>
