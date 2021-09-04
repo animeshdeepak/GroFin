@@ -7,16 +7,17 @@
         <entry key="app/src/main/res/drawable/button_rounded.xml" value="0.1712962962962963" />
         <entry key="app/src/main/res/drawable/dummy_logo.xml" value="0.1675925925925926" />
         <entry key="app/src/main/res/drawable/edit_text_rounded.xml" value="0.1712962962962963" />
+        <entry key="app/src/main/res/drawable/ic_cancel.xml" value="0.19635416666666666" />
         <entry key="app/src/main/res/drawable/text_cusor.xml" value="0.1675925925925926" />
         <entry key="app/src/main/res/layout/activity_login_register.xml" value="0.11820652173913043" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.16" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_rewards.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_service.xml" value="0.1" />
         <entry key="app/src/main/res/layout/header_navigation_drawer.xml" value="0.1" />
         <entry key="app/src/main/res/layout/otp_bottom_sheet_fragment.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/otp_fragment.xml" value="0.14" />
+        <entry key="app/src/main/res/layout/otp_fragment.xml" value="0.25" />
       </map>
     </option>
   </component>
