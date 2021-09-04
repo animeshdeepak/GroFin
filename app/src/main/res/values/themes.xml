@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.GroFin" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.GroFin" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -16,8 +16,8 @@
         <!--        <item name="android:windowBackground">@drawable/background_theme</item>-->
         <!-- Button Theme. -->
         <item name="materialButtonStyle">@style/ThemeButton</item>
-        <!-- Font Family -->
-        <item name="android:textViewStyle">@style/MontserratTextViewStyle</item>
+<!--         Font Family
+        <item name="android:textViewStyle">@style/MontserratTextViewStyle</item>-->
     </style>
 
     <style name="ThemeButton" parent="Widget.MaterialComponents.Button">
@@ -27,7 +27,9 @@
         <item name="textAllCaps">false</item>
         <item name="android:textSize">18sp</item>
         <item name="android:stateListAnimator">@null</item>
+<!--
         <item name="android:fontFamily">@font/montserrat_regular</item>
+-->
     </style>
 
     <!-- Error Text Appearance -->
@@ -43,7 +45,7 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="MontserratTextViewStyle" parent="android:Widget.TextView">
+<!--    <style name="MontserratTextViewStyle" parent="android:Widget.TextView">
         <item name="android:fontFamily">@font/montserrat_regular</item>
-    </style>
+    </style>-->
 </resources>

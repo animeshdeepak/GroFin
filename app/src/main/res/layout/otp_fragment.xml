@@ -37,6 +37,7 @@
                 android:layout_below="@id/separator_view"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_regular"
                 android:text="@string/enter_otp_number"
                 android:textColor="@color/grofin_black"
                 android:textSize="16sp" />
@@ -49,14 +50,14 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/edit_text_rounded"
                 android:cursorVisible="false"
+                android:fontFamily="@font/montserrat_regular"
                 android:gravity="center"
                 android:hint="@string/enter_otp"
                 android:importantForAutofill="no"
                 android:inputType="numberPassword"
-                android:letterSpacing="0.5"
                 android:longClickable="false"
                 android:maxLength="@integer/otp_length"
-                android:textColorHint="@color/grofin_blue" />
+                android:textColorHint="@color/black" />
 
             <TextView
                 android:id="@+id/otp_error_tv"
@@ -66,7 +67,10 @@
                 android:layout_below="@id/otp_et"
                 android:layout_alignStart="@id/otp_et"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_regular"
                 android:text="@string/invalid_otp"
+                android:textSize="12sp"
                 android:visibility="@{errorOTPVisibility ? View.VISIBLE : View.GONE}"
                 tools:visibility="visible" />
 
@@ -79,10 +83,11 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="15dp"
+                android:fontFamily="@font/montserrat_regular"
                 android:gravity="center_horizontal"
                 android:text="@string/sms_otp_info_message"
                 android:textColor="@color/grofin_black"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
             <LinearLayout
                 android:id="@+id/container_ll"
@@ -96,18 +101,20 @@
                     android:id="@+id/did_not_receive_otp_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular"
                     android:text="@string/did_not_receive_otp"
                     android:textColor="@color/grofin_black"
-                    android:textSize="14sp" />
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/resend_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
+                    android:fontFamily="@font/montserrat_medium"
                     android:text="@string/resend"
                     android:textColor="@color/grofin_blue"
-                    android:textSize="14sp"
+                    android:textSize="16sp"
                     android:textStyle="bold|italic" />
             </LinearLayout>
 
@@ -117,8 +124,9 @@
                 android:layout_height="60dp"
                 android:layout_below="@id/container_ll"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_medium"
                 android:text="@string/verify"
-                android:textStyle="bold" />
+                android:textSize="20sp" />
 
             <!--            <TextView
                             android:id="@+id/tv_counter"

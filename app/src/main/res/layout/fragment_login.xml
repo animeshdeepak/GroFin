@@ -13,7 +13,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -38,6 +38,7 @@
                 android:layout_below="@id/separator_view"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_regular"
                 android:text="@string/enter_phone_number"
                 android:textColor="@color/grofin_black"
                 android:textSize="16sp" />
@@ -49,13 +50,13 @@
                 android:layout_below="@id/enter_phone_no_tv"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/edit_text_rounded"
+                android:fontFamily="@font/montserrat_regular"
                 android:gravity="center"
                 android:hint="@string/enter_mobile"
                 android:importantForAutofill="no"
                 android:inputType="phone"
-                android:letterSpacing="0.5"
                 android:maxLength="@integer/phone_number_length"
-                android:textColorHint="@color/grofin_blue"
+                android:textColorHint="@color/black"
                 android:textCursorDrawable="@drawable/text_cursor_drawable" />
 
             <TextView
@@ -67,7 +68,9 @@
                 android:layout_alignStart="@id/et_mobile"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_regular"
                 android:text="@string/invalid_mobile_no"
+                android:textSize="12sp"
                 android:visibility="@{errorMobileVisibility ? View.VISIBLE : View.GONE}"
                 tools:visibility="visible" />
 
@@ -79,8 +82,10 @@
                 android:layout_alignEnd="@id/et_mobile"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
+                android:fontFamily="@font/montserrat_regular"
                 android:text="@string/new_user_register"
-                android:textColor="@color/grofin_black" />
+                android:textColor="@color/grofin_black"
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/btn_get_otp"
@@ -88,8 +93,9 @@
                 android:layout_height="60dp"
                 android:layout_below="@id/tv_register"
                 android:layout_marginTop="20dp"
-                android:text="@string/get_otp"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/montserrat_medium"
+                android:textSize="20sp"
+                android:text="@string/get_otp" />
         </RelativeLayout>
     </ScrollView>
 </layout>
