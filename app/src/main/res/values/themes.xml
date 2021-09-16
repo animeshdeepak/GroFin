@@ -16,8 +16,7 @@
         <!--        <item name="android:windowBackground">@drawable/background_theme</item>-->
         <!-- Button Theme. -->
         <item name="materialButtonStyle">@style/ThemeButton</item>
-<!--         Font Family
-        <item name="android:textViewStyle">@style/MontserratTextViewStyle</item>-->
+        <item name="android:editTextStyle">@style/EditTextStyle</item>
     </style>
 
     <style name="ThemeButton" parent="Widget.MaterialComponents.Button">
@@ -27,16 +26,18 @@
         <item name="textAllCaps">false</item>
         <item name="android:textSize">18sp</item>
         <item name="android:stateListAnimator">@null</item>
-<!--
-        <item name="android:fontFamily">@font/montserrat_regular</item>
--->
+        <!--
+                <item name="android:fontFamily">@font/montserrat_regular</item>
+        -->
     </style>
 
     <!-- Error Text Appearance -->
     <style name="EditTextErrorTheme" parent="Theme.MaterialComponents">
         <item name="android:textColor">@color/red</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="layout_goneMarginEnd">10dp</item>
     </style>
 
     <style name="navTextStyle" parent="@android:style/TextAppearance.Medium">
@@ -45,7 +46,17 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-<!--    <style name="MontserratTextViewStyle" parent="android:Widget.TextView">
+    <!--    <style name="MontserratTextViewStyle" parent="android:Widget.TextView">
+            <item name="android:fontFamily">@font/montserrat_regular</item>
+        </style>-->
+
+    <!-- Edittext Style -->
+    <style name="EditTextStyle" parent="android:Widget.EditText">
         <item name="android:fontFamily">@font/montserrat_regular</item>
-    </style>-->
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/black</item>
+        <item name="android:textCursorDrawable">@drawable/text_cursor_drawable</item>
+        <item name="android:background">@drawable/edit_text_rounded</item>
+    </style>
 </resources>

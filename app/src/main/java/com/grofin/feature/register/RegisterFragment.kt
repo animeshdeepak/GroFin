@@ -30,7 +30,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, LoginViewModel>()
 
     override fun initListener() {
         binding.btnGetOtp.setOnClickListener {
-            binding.etMobile.let {
+            binding.enterPhoneNoEt.let {
                 if (it.text.toString().isMobileValid()) {
                     viewModel.errorMobileVisibilityRegister.set(false)
                     it.closeKeyboard()
@@ -46,7 +46,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, LoginViewModel>()
     private fun navigateToLoginFragment() {
         navController().currentDestination?.getAction(R.id.action_global_OTPFragment)
             ?.let {
-                val bundle = bundleOf(Constants.MOBILE_NUMBER to binding.etMobile.text.toString())
+                val bundle = bundleOf(Constants.MOBILE_NUMBER to binding.enterPhoneNoEt.text.toString())
                 navController().navigate(R.id.action_global_OTPFragment, bundle)
             }
     }

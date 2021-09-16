@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="50dp"
                 android:src="@drawable/ic_logo"
                 tools:ignore="ContentDescription" />
 
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/grofin_iv"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="140dp"
+                android:layout_marginTop="120dp"
                 android:fontFamily="@font/montserrat_regular"
                 android:text="@string/enter_phone_number"
                 android:textColor="@color/grofin_black"
@@ -48,20 +48,15 @@
 
             <EditText
                 android:id="@+id/et_mobile"
+                style="@style/EditTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_below="@id/enter_phone_no_tv"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/edit_text_rounded"
-                android:fontFamily="@font/montserrat_regular"
-                android:gravity="center"
                 android:hint="@string/enter_mobile"
                 android:importantForAutofill="no"
                 android:inputType="phone"
-                android:maxLength="@integer/phone_number_length"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textCursorDrawable="@drawable/text_cursor_drawable" />
+                android:maxLength="@integer/phone_number_length" />
 
             <TextView
                 android:id="@+id/et_mobile_error"
@@ -70,11 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/et_mobile"
                 android:layout_alignStart="@id/et_mobile"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/montserrat_regular"
                 android:text="@string/invalid_mobile_no"
-                android:textSize="12sp"
                 android:visibility="@{errorMobileVisibility ? View.VISIBLE : View.GONE}"
                 tools:visibility="visible" />
 
@@ -83,8 +74,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/et_mobile"
-                android:layout_marginTop="40dp"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/montserrat_regular"
                 android:text="@string/no_account"
                 android:textColor="@color/black"
@@ -95,8 +86,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/no_account_tv"
-                android:layout_marginTop="15dp"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/montserrat_regular"
                 android:text="@string/register"
                 android:textColor="@color/grofin_blue"

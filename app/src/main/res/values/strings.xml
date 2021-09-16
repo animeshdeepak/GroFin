@@ -21,7 +21,9 @@
     <string name="verify">Verify</string>
 
     <!--    Register-->
-    <string name="enter_referral_code">Enter Referral Code</string>
+    <string name="enter_referral_number">Enter referral number</string>
+    <string name="enter_phone_number">Enter phone number</string>
+
     <string name="referral_does_not_exist">referral does n\'t exist</string>
     <string name="title_register">REGISTER</string>
     <string name="enter_referral">Enter Referral</string>
@@ -44,6 +46,6 @@
     <string name="title_motor">Motors</string>
 
     <string name="under_development">Under Development!</string>
-    <string name="enter_phone_number">Enter phone number</string>
+    <string name="referral_optional">(optional)</string>
 
 </resources>

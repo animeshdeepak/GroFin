@@ -8,7 +8,7 @@
 
     <item
         android:gravity="bottom"
-        android:top="300dp">
+        android:top="270dp">
         <shape>
             <solid android:color="@color/white" />
             <corners
