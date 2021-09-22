@@ -123,11 +123,20 @@
                 android:visibility="@{errorReferralVisibility ? View.VISIBLE : View.GONE}"
                 tools:visibility="visible" />
 
+            <CheckBox
+                android:id="@+id/terms_condition_cb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/enter_phone_no_et"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="@string/terms_n_conditions"/>
+
             <Button
                 android:id="@+id/btn_get_otp"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_below="@id/enter_phone_no_et"
+                android:layout_below="@id/terms_condition_cb"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="@string/get_otp"

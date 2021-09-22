@@ -47,5 +47,6 @@
 
     <string name="under_development">Under Development!</string>
     <string name="referral_optional">(optional)</string>
+    <string name="terms_n_conditions">I agree with Terms &amp; Conditions</string>
 
 </resources>
