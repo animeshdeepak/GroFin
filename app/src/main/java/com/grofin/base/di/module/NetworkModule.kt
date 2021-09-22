@@ -4,6 +4,7 @@ import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.grofin.base.networking.*
+import com.grofin.base.service.LoginRegisterService
 import com.grofin.base.service.SplashService
 import dagger.Module
 import dagger.Provides
@@ -32,6 +33,7 @@ class NetworkModule(private val baseUrl: String) {
             level = HttpLoggingInterceptor.Level.BODY
         }
         return arrayListOf<Interceptor>().apply {
+            add(HeaderInterceptor())
             add(logging)
             add(ConnectivityInterceptor(context))
         }
@@ -85,4 +87,9 @@ class NetworkModule(private val baseUrl: String) {
     @Provides
     fun provideSplashService(retrofit: Retrofit): SplashService =
         SplashService(retrofit.create(AppApis::class.java))
+
+    @Singleton
+    @Provides
+    fun provideLoginRegisterService(retrofit: Retrofit): LoginRegisterService =
+        LoginRegisterService(retrofit.create(AppApis::class.java))
 }

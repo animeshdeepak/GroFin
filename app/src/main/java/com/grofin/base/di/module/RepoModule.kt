@@ -1,7 +1,10 @@
 package com.grofin.base.di.module
 
+import com.grofin.base.repo.LoginRegisterRepo
+import com.grofin.base.repo.LoginRegisterRepoImpl
 import com.grofin.base.repo.SplashRepo
 import com.grofin.base.repo.SplashRepoImpl
+import com.grofin.base.service.LoginRegisterService
 import com.grofin.base.service.SplashService
 import dagger.Module
 import dagger.Provides
@@ -12,4 +15,8 @@ class RepoModule {
     @Singleton
     @Provides
     fun provideSplashRepo(service: SplashService): SplashRepo = SplashRepoImpl(service)
+
+    @Singleton
+    @Provides
+    fun provideLoginRegisterRepo(service: LoginRegisterService): LoginRegisterRepo = LoginRegisterRepoImpl(service)
 }

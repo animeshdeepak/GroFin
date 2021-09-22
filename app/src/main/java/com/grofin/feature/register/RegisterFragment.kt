@@ -5,10 +5,13 @@ import androidx.core.os.bundleOf
 import com.grofin.R
 import com.grofin.base.base.BaseFragment
 import com.grofin.base.constants.Constants
+import com.grofin.base.extensions.SingleEvent
 import com.grofin.base.extensions.closeKeyboard
 import com.grofin.base.extensions.isMobileValid
+import com.grofin.base.extensions.observe
 import com.grofin.databinding.FragmentRegisterBinding
 import com.grofin.feature.login.LoginViewModel
+import com.grofin.feature.response.RegisterResponse
 
 class RegisterFragment : BaseFragment<FragmentRegisterBinding, LoginViewModel>() {
 
@@ -21,6 +24,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, LoginViewModel>()
     override fun executeOnlyOnce() {
         initViews()
         initListener()
+        setUpObserver()
     }
 
     override fun initViews() {
@@ -34,14 +38,26 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, LoginViewModel>()
                 if (it.text.toString().isMobileValid()) {
                     viewModel.errorMobileVisibilityRegister.set(false)
                     it.closeKeyboard()
-                    navigateToLoginFragment()
+                    viewModel.register(it.text.toString())
                 } else
                     viewModel.errorMobileVisibilityRegister.set(true)
             }
         }
     }
 
-    override fun setUpObserver() = Unit
+    override fun setUpObserver() {
+        observe(viewModel.apiRegister, ::onRegisterResponseSuccess)
+    }
+
+    private fun onRegisterResponseSuccess(event: SingleEvent<RegisterResponse>) {
+        event.contentIfNotHandled?.let {
+            if (it.success) {
+                navigateToLoginFragment()
+            } else {
+                showToastMessage(it.message)
+            }
+        }
+    }
 
     private fun navigateToLoginFragment() {
         navController().currentDestination?.getAction(R.id.action_global_OTPFragment)
