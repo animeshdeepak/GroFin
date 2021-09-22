@@ -32,7 +32,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
                 if (it.text.toString().isMobileValid()) {
                     viewModel.errorMobileVisibility.set(false)
                     it.closeKeyboard()
-                    navigateToLoginFragment()
+                    navigateToOTPFragment()
                 } else
                     viewModel.errorMobileVisibility.set(true)
             }
@@ -48,10 +48,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
         }
     }
 
-    private fun navigateToLoginFragment() {
+    private fun navigateToOTPFragment() {
         navController().currentDestination?.getAction(R.id.action_global_OTPFragment)
             ?.let {
-                val bundle = bundleOf(Constants.MOBILE_NUMBER to binding.etMobile.text.toString())
+                val bundle = bundleOf(Constants.KEY_MOBILE_NUMBER to binding.etMobile.text.toString())
                 navController().navigate(R.id.action_global_OTPFragment, bundle)
             }
     }

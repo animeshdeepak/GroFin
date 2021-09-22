@@ -62,7 +62,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, LoginViewModel>()
     private fun navigateToLoginFragment() {
         navController().currentDestination?.getAction(R.id.action_global_OTPFragment)
             ?.let {
-                val bundle = bundleOf(Constants.MOBILE_NUMBER to binding.enterPhoneNoEt.text.toString())
+                val bundle = bundleOf(Constants.KEY_MOBILE_NUMBER to binding.enterPhoneNoEt.text.toString())
                 navController().navigate(R.id.action_global_OTPFragment, bundle)
             }
     }
