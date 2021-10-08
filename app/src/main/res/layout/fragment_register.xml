@@ -108,9 +108,9 @@
                 android:layout_below="@id/enter_phone_tv"
                 android:layout_marginTop="20dp"
                 android:hint="@string/enter_mobile"
-                android:inputType="phone"
+                android:inputType="number"
                 android:maxLength="@integer/phone_number_length"
-                tools:ignore="Autofill" />
+                tools:ignore="Autofill,TextFields" />
 
             <TextView
                 android:id="@+id/mobile_no_error_et"

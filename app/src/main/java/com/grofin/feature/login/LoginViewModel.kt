@@ -7,15 +7,17 @@ import com.grofin.base.base.BaseViewModel
 import com.grofin.base.extensions.ApiStatus
 import com.grofin.base.extensions.SingleEvent
 import com.grofin.base.repo.LoginRegisterRepo
-import com.grofin.feature.request.User
+import com.grofin.feature.request.RegisterRequest
+import com.grofin.feature.response.RegisterResponse
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
-import com.grofin.feature.response.RegisterResponse
-import com.grofin.feature.request.RegisterRequest
 
-class LoginViewModel @Inject constructor(private val loginRegisterRepo: LoginRegisterRepo) : BaseViewModel() {
+class LoginViewModel @Inject constructor(private val loginRegisterRepo: LoginRegisterRepo) :
+    BaseViewModel() {
     // for login screen
     var errorMobileVisibility = ObservableBoolean()
+    val enableNextBtn = MutableLiveData<String>()
+
     // for register screen
     var errorMobileVisibilityRegister = ObservableBoolean()
     var errorReferralVisibility = ObservableBoolean()

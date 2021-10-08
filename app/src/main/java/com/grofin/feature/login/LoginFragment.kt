@@ -7,6 +7,7 @@ import com.grofin.base.base.BaseFragment
 import com.grofin.base.constants.Constants
 import com.grofin.base.extensions.closeKeyboard
 import com.grofin.base.extensions.isMobileValid
+import com.grofin.base.extensions.observe
 import com.grofin.databinding.FragmentLoginBinding
 
 class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
@@ -19,14 +20,23 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
     override fun executeOnlyOnce() {
         binding.errorMobileVisibility = viewModel.errorMobileVisibility
         initListener()
+        setUpObserver()
     }
 
 
     override fun initViews() = Unit
 
-    override fun setUpObserver() = Unit
+    override fun setUpObserver() {
+        observe(viewModel.enableNextBtn, ::mobileNoChangeListener)
+    }
+
+    private fun mobileNoChangeListener(mobileNo: String) {
+        binding.btnGetOtp.isEnabled = mobileNo.trim().isMobileValid()
+    }
 
     override fun initListener() {
+        binding.loginViewModel = viewModel
+
         binding.btnGetOtp.setOnClickListener {
             binding.etMobile.let {
                 if (it.text.toString().isMobileValid()) {
@@ -51,7 +61,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
     private fun navigateToOTPFragment() {
         navController().currentDestination?.getAction(R.id.action_global_OTPFragment)
             ?.let {
-                val bundle = bundleOf(Constants.KEY_MOBILE_NUMBER to binding.etMobile.text.toString())
+                val bundle =
+                    bundleOf(Constants.KEY_MOBILE_NUMBER to binding.etMobile.text.toString())
                 navController().navigate(R.id.action_global_OTPFragment, bundle)
             }
     }
