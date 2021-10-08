@@ -84,8 +84,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/et_refer"
                 android:layout_alignStart="@id/et_refer"
-                android:text="@string/invalid_mobile_no"
-                android:visibility="@{errorMobileVisibility ? View.VISIBLE : View.GONE}"
+                android:text="@string/referral_does_not_exist"
+                android:visibility="@{errorReferralVisibility ? View.VISIBLE : View.GONE}"
                 tools:visibility="visible" />
 
             <TextView
@@ -119,8 +119,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/enter_phone_no_et"
                 android:layout_alignStart="@id/et_refer"
-                android:text="@string/referral_does_not_exist"
-                android:visibility="@{errorReferralVisibility ? View.VISIBLE : View.GONE}"
+                android:text="@string/invalid_mobile_no"
+                android:visibility="@{errorMobileVisibility ? View.VISIBLE : View.GONE}"
                 tools:visibility="visible" />
 
             <CheckBox
