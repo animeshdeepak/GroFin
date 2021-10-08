@@ -4,16 +4,14 @@ import java.util.regex.Pattern
 
 
 fun String.isMobileValid(): Boolean {
-//    return !isNullOrEmpty() && !isNullOrBlank() && trim().length == 10
     val pattern = Pattern.compile("(\\d{10})")
-    val matcher = pattern.matcher(this)
+    val matcher = pattern.matcher(this.trim())
     return matcher.matches()
 }
 
 fun String.isOtpValid(): Boolean {
-//    return !isNullOrEmpty() && !isNullOrBlank() && trim().length == 4
     val pattern = Pattern.compile("(\\d{4})")
-    val matcher = pattern.matcher(this)
+    val matcher = pattern.matcher(this.trim())
     return matcher.matches()
 }
 
