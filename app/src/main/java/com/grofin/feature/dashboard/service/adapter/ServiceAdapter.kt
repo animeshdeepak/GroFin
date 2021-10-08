@@ -26,10 +26,11 @@ class ServiceAdapter(private val serviceList: ArrayList<ServiceModel>) :
             val perItem = serviceList[bindingAdapterPosition]
 
             binding.apply {
-                binding.cvItem.setOnClickListener {
+                grofinItem = perItem
+                binding.item.setOnClickListener {
                     onItemClick?.invoke(perItem.serviceName, perItem.serviceUrl)
                 }
-                item = perItem
+                executePendingBindings()
             }
         }
     }

@@ -43,11 +43,6 @@ class ServiceFragment : BaseFragment<FragmentServiceBinding, ServiceViewModel>()
                     resources.getInteger(R.integer.photo_list_preview_columns)
                 )
             )
-/*            addItemDecoration(
-                SpacesItemDecoration(
-                    resources.getDimensionPixelSize(R.dimen.photos_list_spacing)
-                )
-            )*/
             adapter = serviceAdapter
             serviceAdapter.onItemClick = { name, url ->
                 Intent(requireContext(), WebViewActivity::class.java).apply {
@@ -62,12 +57,12 @@ class ServiceFragment : BaseFragment<FragmentServiceBinding, ServiceViewModel>()
 
     private fun getServiceModelList(): ArrayList<ServiceModel> {
         val list = ArrayList<ServiceModel>()
-        list.add(ServiceModel("", "Car", Constants.MOTORS_URL, R.drawable.car))
-        list.add(ServiceModel("", "2 Wheeler", Constants.MOTORS_URL, R.drawable.motorcycle))
-        list.add(ServiceModel("", "Health", "", R.drawable.health))
-        list.add(ServiceModel("", "Life/Term", "", R.drawable.insurance))
-        list.add(ServiceModel("", "Cards", "", R.drawable.cards))
-        list.add(ServiceModel("", "Investment", "", R.drawable.investment))
+        list.add(ServiceModel("", "Insurance", Constants.MOTORS_URL, R.drawable.insurance))
+        list.add(ServiceModel("", "Instant Loan", Constants.MOTORS_URL, R.drawable.insurance))
+        list.add(ServiceModel("", "Credit Card", "", R.drawable.insurance))
+        list.add(ServiceModel("", "Download and Earn", "", R.drawable.insurance))
+        list.add(ServiceModel("", "Investment", "", R.drawable.insurance))
+        list.add(ServiceModel("", "Tax Planning", "", R.drawable.insurance))
         return list
     }
 

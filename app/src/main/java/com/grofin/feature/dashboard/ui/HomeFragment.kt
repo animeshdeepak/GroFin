@@ -3,6 +3,7 @@ package com.grofin.feature.dashboard.ui
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.material.tabs.TabLayoutMediator
 import com.grofin.R
 import com.grofin.base.base.BaseFragment
@@ -33,9 +34,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         initListener()
         setUpObserver()
         initViews()
-
+        setUpTopBanner()
         setUpViewPager()
         setUpTabLayout()
+    }
+
+    private fun setUpTopBanner() {
+        val sliderItemList = ArrayList<SlideModel>()
+        sliderItemList.add(SlideModel(imagePath = R.drawable.banner_img_1))
+        sliderItemList.add(SlideModel(imagePath = R.drawable.banner_img_2))
+        sliderItemList.add(SlideModel(imagePath = R.drawable.banner_img_1))
+
+        binding.imageSlider.setImageList(sliderItemList)
     }
 
     private fun setUpViewPager() {
@@ -59,9 +69,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
             binding.viewPager
         ) { tabs, position ->
             when (position) {
-                TAB_POSITION_1 -> tabs.text = getString(R.string.service_tab)
-                TAB_POSITION_2 -> tabs.text = getString(R.string.network_tab)
-                TAB_POSITION_3 -> tabs.text = getString(R.string.rewards_tab)
+                TAB_POSITION_1 -> tabs.setCustomView(R.layout.custom_tab_item_1)
+                TAB_POSITION_2 -> tabs.setCustomView(R.layout.custom_tab_item_2)
+                TAB_POSITION_3 -> tabs.setCustomView(R.layout.custom_tab_item_3)
             }
         }.attach()
     }

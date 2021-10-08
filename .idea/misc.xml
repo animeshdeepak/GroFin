@@ -11,18 +11,34 @@
         <entry key="app/src/main/res/drawable/ic_cancel.xml" value="0.19635416666666666" />
         <entry key="app/src/main/res/drawable/ic_group_6.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_logo.xml" value="0.18981481481481483" />
+        <entry key="app/src/main/res/drawable/ic_menu.xml" value="0.3037037037037037" />
+        <entry key="app/src/main/res/drawable/insurance.xml" value="0.3037037037037037" />
+        <entry key="app/src/main/res/drawable/tab_background_color.xml" value="0.3037037037037037" />
+        <entry key="app/src/main/res/drawable/tab_background_selected.xml" value="0.3037037037037037" />
+        <entry key="app/src/main/res/drawable/tab_background_unselected.xml" value="0.3037037037037037" />
         <entry key="app/src/main/res/drawable/text_cursor_drawable.xml" value="0.19635416666666666" />
         <entry key="app/src/main/res/drawable/text_cusor.xml" value="0.1675925925925926" />
         <entry key="app/src/main/res/drawable/white_bg_curve.xml" value="0.18981481481481483" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.39791666666666664" />
         <entry key="app/src/main/res/layout/activity_login_register.xml" value="0.11820652173913043" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/common_toolbar.xml" value="0.39791666666666664" />
+        <entry key="app/src/main/res/layout/custom_tab_item_1.xml" value="0.36231884057971014" />
+        <entry key="app/src/main/res/layout/custom_tab_item_2.xml" value="0.36231884057971014" />
+        <entry key="app/src/main/res/layout/custom_tab_item_3.xml" value="0.36231884057971014" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3797752808988764" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.16" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_rewards.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_service.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_service.xml" value="0.335" />
         <entry key="app/src/main/res/layout/header_navigation_drawer.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_service.xml" value="0.4125" />
+        <entry key="app/src/main/res/layout/main_content.xml" value="0.4125" />
         <entry key="app/src/main/res/layout/otp_bottom_sheet_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/otp_fragment.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/progress_bar.xml" value="0.4125" />
+        <entry key="app/src/main/res/layout/slide_item_container.xml" value="0.36231884057971014" />
+        <entry key="app/src/main/res/layout/web_view_toolbar.xml" value="0.4125" />
       </map>
     </option>
   </component>

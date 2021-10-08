@@ -50,6 +50,7 @@ class HomeActivity : BaseActivity() {
         drawerToggle.syncState()
 
         supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_menu)
 
         navigationView.setNavigationItemSelectedListener { item ->
@@ -110,11 +111,7 @@ class HomeActivity : BaseActivity() {
         val navController = navHostFragment.navController
 
         val navGraph = navController.navInflater.inflate(R.navigation.home_nav_graph)
-
-        val bundle = bundleOf(
-            Constants.TOOLBAR_TITLE to getString(R.string.title_home)
-        )
-        navController.setGraph(navGraph, bundle)
+        navController.setGraph(navGraph, bundleOf())
 
         navController.addOnDestinationChangedListener { _, _, arguments ->
             arguments?.apply {
