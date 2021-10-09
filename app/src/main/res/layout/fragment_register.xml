@@ -13,6 +13,10 @@
         <variable
             name="errorReferralVisibility"
             type="androidx.databinding.ObservableBoolean" />
+
+        <variable
+            name="viewModel"
+            type="com.grofin.feature.login.LoginViewModel" />
     </data>
 
     <ScrollView
@@ -62,6 +66,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
                     android:fontFamily="@font/montserrat_regular"
+                    android:textColor="@color/black"
                     android:text="@string/referral_optional" />
             </LinearLayout>
 
@@ -74,8 +79,9 @@
                 android:layout_marginTop="20dp"
                 android:hint="@string/enter_referral"
                 android:importantForAutofill="no"
-                android:inputType="text"
-                android:maxLength="@integer/phone_number_length" />
+                android:inputType="number"
+                android:maxLength="@integer/phone_number_length"
+                android:text="@={viewModel.registerReferralNoListener}" />
 
             <TextView
                 android:id="@+id/et_referral_error"
@@ -110,6 +116,7 @@
                 android:hint="@string/enter_mobile"
                 android:inputType="number"
                 android:maxLength="@integer/phone_number_length"
+                android:text="@={viewModel.registerMobileNoListener}"
                 tools:ignore="Autofill,TextFields" />
 
             <TextView
@@ -131,18 +138,17 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 android:buttonTint="@color/grofin_blue"
-                android:text="@string/terms_n_conditions"
+                android:text="@string/terms_n_conditions_msg"
                 android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/btn_get_otp"
+                style="@style/disableButton"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_below="@id/terms_condition_cb"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/montserrat_medium"
-                android:text="@string/get_otp"
-                android:textSize="20sp" />
+                android:text="@string/get_otp" />
         </RelativeLayout>
     </ScrollView>
 </layout>

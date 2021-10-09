@@ -13,6 +13,10 @@
         <variable
             name="timerVisibility"
             type="androidx.databinding.ObservableBoolean" />
+
+        <variable
+            name="viewModel"
+            type="com.grofin.feature.login.LoginViewModel" />
     </data>
 
     <ScrollView
@@ -61,7 +65,8 @@
                 android:importantForAutofill="no"
                 android:inputType="numberPassword"
                 android:longClickable="false"
-                android:maxLength="@integer/otp_length" />
+                android:maxLength="@integer/otp_length"
+                android:text="@={viewModel.otpListener}" />
 
             <TextView
                 android:id="@+id/otp_error_tv"

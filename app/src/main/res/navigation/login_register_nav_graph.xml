@@ -19,7 +19,27 @@
         android:id="@+id/OTPFragment"
         android:name="com.grofin.feature.login.OTPFragment"
         android:label="OTPFragment"
-        tools:layout="@layout/otp_fragment" />
+        tools:layout="@layout/otp_fragment">
+        <argument
+            android:name="id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <argument
+            android:name="otp"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="mobileNo"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="referralNo"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/registerFragment"

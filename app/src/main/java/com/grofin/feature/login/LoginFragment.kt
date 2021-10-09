@@ -2,10 +2,8 @@ package com.grofin.feature.login
 
 import android.os.Bundle
 import androidx.core.content.ContextCompat
-import androidx.core.os.bundleOf
 import com.grofin.R
 import com.grofin.base.base.BaseFragment
-import com.grofin.base.constants.Constants
 import com.grofin.base.extensions.SingleEvent
 import com.grofin.base.extensions.closeKeyboard
 import com.grofin.base.extensions.isMobileValid
@@ -21,16 +19,19 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
     override fun performTasksOnActivityCreated(savedInstanceState: Bundle?) = Unit
 
     override fun executeOnlyOnce() {
-        binding.errorMobileVisibility = viewModel.errorMobileVisibility
+        initViews()
         initListener()
         setUpObserver()
     }
 
 
-    override fun initViews() = Unit
+    override fun initViews() {
+        binding.loginViewModel = viewModel
+        binding.errorMobileVisibility = viewModel.errorMobileVisibility
+    }
 
     override fun setUpObserver() {
-        observe(viewModel.enableNextBtn, ::mobileNoChangeListener)
+        observe(viewModel.loginMobileNoListener, ::mobileNoChangeListener)
         observe(viewModel.apiLogin, ::onLoginResponseSuccess)
     }
 
@@ -61,38 +62,34 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
     }
 
     private fun onLoginResponseSuccess(event: SingleEvent<LoginResponse>) {
-        event.contentIfNotHandled?.let {
-            if (it.success) {
-                navigateToOTPFragment()
-            } else
-                showToastMessage(it.message)
-        }
+        if (isAdded && isVisible && activity != null)
+            event.contentIfNotHandled?.let {
+                if (it.success) {
+                    navigateToOTPFragment(it.data?.id, it.data?.otp)
+                } else
+                    showToastMessage(it.message)
+            }
     }
 
     override fun initListener() {
-        binding.loginViewModel = viewModel
-
         binding.btnGetOtp.setOnClickListener {
-            viewModel.login(binding.enterPhoneNoTv.text.trim().toString())
+            viewModel.login()
             it.closeKeyboard()
         }
 
         binding.tvRegister.setOnClickListener {
             navController().currentDestination?.getAction(R.id.action_loginFragment_to_registerFragment)
                 ?.let {
-                    val bundle =
-                        bundleOf(Constants.TOOLBAR_TITLE to getString(R.string.title_register))
-                    navController().navigate(R.id.action_loginFragment_to_registerFragment, bundle)
+                    navController().navigate(R.id.action_loginFragment_to_registerFragment)
                 }
         }
     }
 
-    private fun navigateToOTPFragment() {
+    private fun navigateToOTPFragment(id: Int?, otp: String?) {
         navController().currentDestination?.getAction(R.id.action_global_OTPFragment)
             ?.let {
-                val bundle =
-                    bundleOf(Constants.KEY_MOBILE_NUMBER to binding.etMobile.text.toString())
-                navController().navigate(R.id.action_global_OTPFragment, bundle)
+                val action = OTPFragmentDirections.actionGlobalOTPFragment(id ?: -1, otp, binding.etMobile.text.toString().trim())
+                navController().navigate(action)
             }
     }
 }

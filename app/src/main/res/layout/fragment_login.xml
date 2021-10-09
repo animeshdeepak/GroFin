@@ -61,7 +61,7 @@
                 android:importantForAutofill="no"
                 android:inputType="number"
                 android:maxLength="@integer/phone_number_length"
-                android:text="@={loginViewModel.enableNextBtn}" />
+                android:text="@={loginViewModel.loginMobileNoListener}" />
 
             <TextView
                 android:id="@+id/et_mobile_error"

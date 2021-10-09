@@ -16,7 +16,9 @@ fun String.isOtpValid(): Boolean {
 }
 
 fun String.isReferIdValid(): Boolean {
-    return !isNullOrEmpty() && !isNullOrBlank() && trim().length == 10
+    val pattern = Pattern.compile("(\\d{10})")
+    val matcher = pattern.matcher(this.trim())
+    return matcher.matches()
 }
 
 fun String.extractOtp(): String? {
