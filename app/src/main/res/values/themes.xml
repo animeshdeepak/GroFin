@@ -59,4 +59,11 @@
         <item name="android:textCursorDrawable">@drawable/text_cursor_drawable</item>
         <item name="android:background">@drawable/edit_text_rounded</item>
     </style>
+
+    <style name="disableButton">
+        <item name="android:enabled">false</item>
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:backgroundTint">@color/grofin_light_green</item>
+    </style>
 </resources>

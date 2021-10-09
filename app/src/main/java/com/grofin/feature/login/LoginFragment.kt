@@ -1,6 +1,7 @@
 package com.grofin.feature.login
 
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import com.grofin.R
 import com.grofin.base.base.BaseFragment
@@ -31,21 +32,30 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
     }
 
     private fun mobileNoChangeListener(mobileNo: String) {
-        binding.btnGetOtp.isEnabled = mobileNo.trim().isMobileValid()
+        if (mobileNo.trim().isMobileValid()) {
+            binding.btnGetOtp.isEnabled = true
+            binding.btnGetOtp.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.grofin_green))
+            binding.etMobile.background = ContextCompat.getDrawable(requireContext(), R.drawable.edit_text_rounded)
+            viewModel.errorMobileVisibility.set(false)
+        } else {
+            binding.btnGetOtp.isEnabled = false
+            binding.btnGetOtp.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.grofin_light_green))
+            binding.etMobile.background = ContextCompat.getDrawable(requireContext(), R.drawable.error_edit_text_rounded)
+            viewModel.errorMobileVisibility.set(true)
+        }
     }
 
     override fun initListener() {
         binding.loginViewModel = viewModel
 
         binding.btnGetOtp.setOnClickListener {
-            binding.etMobile.let {
-                if (it.text.toString().isMobileValid()) {
-                    viewModel.errorMobileVisibility.set(false)
+            /*binding.etMobile.let {
+                if (it.text.toString().isMobileValid()) {*/
                     it.closeKeyboard()
                     navigateToOTPFragment()
-                } else
+                /*} else
                     viewModel.errorMobileVisibility.set(true)
-            }
+            }*/
         }
 
         binding.tvRegister.setOnClickListener {

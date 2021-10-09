@@ -9,6 +9,10 @@
         <variable
             name="errorMobileVisibility"
             type="androidx.databinding.ObservableBoolean" />
+
+        <variable
+            name="loginViewModel"
+            type="com.grofin.feature.login.LoginViewModel" />
     </data>
 
     <ScrollView
@@ -55,8 +59,9 @@
                 android:layout_marginTop="20dp"
                 android:hint="@string/enter_mobile"
                 android:importantForAutofill="no"
-                android:inputType="phone"
-                android:maxLength="@integer/phone_number_length" />
+                android:inputType="number"
+                android:maxLength="@integer/phone_number_length"
+                android:text="@={loginViewModel.enableNextBtn}" />
 
             <TextView
                 android:id="@+id/et_mobile_error"
@@ -95,13 +100,12 @@
 
             <Button
                 android:id="@+id/btn_get_otp"
+                style="@style/disableButton"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_below="@id/tv_register"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/montserrat_medium"
-                android:text="@string/get_otp"
-                android:textSize="20sp" />
+                android:text="@string/get_otp" />
         </RelativeLayout>
     </ScrollView>
 </layout>
