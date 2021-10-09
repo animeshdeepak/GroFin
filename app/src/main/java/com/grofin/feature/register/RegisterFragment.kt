@@ -114,8 +114,4 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, LoginViewModel>()
                 navController().navigate(R.id.action_global_OTPFragment, bundle)
             }
     }
-
-    private fun callLoginAPI(mobile: String, otp: String) {
-        showToastMessage("$mobile $otp")
-    }
 }

@@ -37,9 +37,9 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
 
     fun showToastMessage(message: String?) {
         if (message != null)
-            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show()
         else
-            Toast.makeText(this, getString(R.string.no_msg_found), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.no_msg_found), Toast.LENGTH_LONG).show()
     }
 
     private fun setUpProgressView() {

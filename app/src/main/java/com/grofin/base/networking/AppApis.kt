@@ -1,7 +1,9 @@
 package com.grofin.base.networking
 
+import com.grofin.feature.request.LoginRequest
 import com.grofin.feature.request.RegisterRequest
 import com.grofin.feature.request.User
+import com.grofin.feature.response.LoginResponse
 import com.grofin.feature.response.RegisterResponse
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.Body
@@ -16,4 +18,7 @@ interface AppApis {
 
     @POST(AppEndPoints.ENDPOINT_REGISTER)
     fun register(@Body request: RegisterRequest): Single<RegisterResponse>
+
+    @POST(AppEndPoints.ENDPOINT_LOGIN)
+    fun login(@Body request: LoginRequest): Single<LoginResponse>
 }
