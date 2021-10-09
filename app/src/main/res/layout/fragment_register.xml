@@ -130,7 +130,9 @@
                 android:layout_below="@id/enter_phone_no_et"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
-                android:text="@string/terms_n_conditions" />
+                android:buttonTint="@color/grofin_blue"
+                android:text="@string/terms_n_conditions"
+                android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/btn_get_otp"
