@@ -7,7 +7,7 @@ import com.grofin.base.base.BaseResponse
 data class OTPResponse(
     @SerializedName("data")
     @Expose
-    val data: Data
+    val data: Data? = null
 ) : BaseResponse() {
     data class Data(
         @SerializedName("token")

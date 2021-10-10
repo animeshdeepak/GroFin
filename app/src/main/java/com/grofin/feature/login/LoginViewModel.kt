@@ -51,7 +51,8 @@ class LoginViewModel @Inject constructor(private val loginRegisterRepo: LoginReg
             registerReferralNoListener.value == null ||
             registerReferralNoListener.value?.isReferIdValid() == true ||
             registerReferralNoListener.value?.isBlank() == true ||
-            registerReferralNoListener.value?.isEmpty() == true) {
+            registerReferralNoListener.value?.isEmpty() == true
+        ) {
             registerMobileNoListener.value?.isMobileValid() == true
                     && registerCheckboxListener.value == true
         } else {
@@ -104,7 +105,9 @@ class LoginViewModel @Inject constructor(private val loginRegisterRepo: LoginReg
                 .subscribe({
                     _isLoading.postValue(SingleEvent(ApiStatus.SUCCESS))
                     _apiOTP.postValue(SingleEvent(it))
-
+                    it.data?.token?.let { token ->
+                        sharedPrefHelper.saveToken(token)
+                    }
                 }, {
                     _isLoading.postValue(SingleEvent(ApiStatus.FAILURE))
                     setError(it)
