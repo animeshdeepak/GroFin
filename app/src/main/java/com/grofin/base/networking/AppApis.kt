@@ -1,19 +1,16 @@
 package com.grofin.base.networking
 
-import com.grofin.feature.request.*
+import com.grofin.feature.request.LoginRequest
+import com.grofin.feature.request.OTPRequest
+import com.grofin.feature.request.RegisterRequest
+import com.grofin.feature.request.ResendOTPRequest
 import com.grofin.feature.response.*
 import io.reactivex.rxjava3.core.Single
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 import javax.inject.Singleton
 
 @Singleton
 interface AppApis {
-    @GET(AppEndPoints.REQ_RES_SINGLE_USER)
-    fun getSingleUser(): Single<User>
-
     @POST(AppEndPoints.ENDPOINT_REGISTER)
     fun register(@Body request: RegisterRequest): Single<RegisterResponse>
 
@@ -28,4 +25,10 @@ interface AppApis {
 
     @POST(AppEndPoints.ENDPOINT_RESEND_OTP)
     fun resendOTP(@Body request: ResendOTPRequest): Single<ResendOTPResponse>
+
+    @GET(AppEndPoints.ENDPOINT_CATEGORIES)
+    fun getCategories(): Single<CategoriesResponse>
+
+    @GET(AppEndPoints.ENDPOINT_SUB_CATEGORIES)
+    fun getSubCategories(@Query("catagory_id") categoryId: Int): Single<SubCategoriesResponse>
 }

@@ -5,24 +5,45 @@ import androidx.lifecycle.MutableLiveData
 import com.grofin.base.base.BaseViewModel
 import com.grofin.base.extensions.ApiStatus
 import com.grofin.base.extensions.SingleEvent
-import com.grofin.base.repo.SplashRepo
-import com.grofin.feature.request.User
+import com.grofin.base.repo.HomeRepo
+import com.grofin.feature.response.CategoriesResponse
+import com.grofin.feature.response.SubCategoriesResponse
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
-class HomeViewModel @Inject constructor(private val splashRepo: SplashRepo) : BaseViewModel() {
-    private var _apiUser = MutableLiveData<SingleEvent<User>>()
-    val apiUser: LiveData<SingleEvent<User>>
-        get() = _apiUser
+class HomeViewModel @Inject constructor(private val homeRepo: HomeRepo) : BaseViewModel() {
+    private var _apiCategories = MutableLiveData<SingleEvent<CategoriesResponse>>()
+    val apiCategories: LiveData<SingleEvent<CategoriesResponse>>
+        get() = _apiCategories
 
-    fun getSingleUser() {
+    private var _apiSubCategories = MutableLiveData<SingleEvent<SubCategoriesResponse>>()
+    val apiSubCategories: LiveData<SingleEvent<SubCategoriesResponse>>
+        get() = _apiSubCategories
+
+    fun getCategories() {
         _isLoading.postValue(SingleEvent(ApiStatus.LOADING))
         addDisposable(
-            splashRepo.getSingleUser()
+            homeRepo.getCategories()
                 .subscribeOn(Schedulers.io())
                 .subscribe({
                     _isLoading.postValue(SingleEvent(ApiStatus.SUCCESS))
-                    _apiUser.postValue(SingleEvent(it))
+                    _apiCategories.postValue(SingleEvent(it))
+
+                }, {
+                    _isLoading.postValue(SingleEvent(ApiStatus.FAILURE))
+                    setError(it)
+                })
+        )
+    }
+
+    fun getSubCategories(categoryId: Int?) {
+        _isLoading.postValue(SingleEvent(ApiStatus.LOADING))
+        addDisposable(
+            homeRepo.getSubCategories(categoryId ?: -1)
+                .subscribeOn(Schedulers.io())
+                .subscribe({
+                    _isLoading.postValue(SingleEvent(ApiStatus.SUCCESS))
+                    _apiSubCategories.postValue(SingleEvent(it))
 
                 }, {
                     _isLoading.postValue(SingleEvent(ApiStatus.FAILURE))

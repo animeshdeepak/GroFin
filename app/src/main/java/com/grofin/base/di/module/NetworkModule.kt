@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder
 import com.grofin.base.SharedPrefHelper
 import com.grofin.base.networking.*
 import com.grofin.base.networking.qualifier.AuthUrlAPI
+import com.grofin.base.service.HomeService
 import com.grofin.base.service.LoginRegisterService
 import com.grofin.base.service.SplashService
 import dagger.Module
@@ -138,4 +139,9 @@ class NetworkModule(private val baseUrl: String) {
     @Provides
     fun provideLoginRegisterService(retrofit: Retrofit, @AuthUrlAPI authRetrofit: Retrofit): LoginRegisterService =
         LoginRegisterService(retrofit.create(AppApis::class.java), authRetrofit.create(AppApis::class.java))
+
+    @Singleton
+    @Provides
+    fun provideHomeService(@AuthUrlAPI authRetrofit: Retrofit): HomeService =
+        HomeService(authRetrofit.create(AppApis::class.java))
 }

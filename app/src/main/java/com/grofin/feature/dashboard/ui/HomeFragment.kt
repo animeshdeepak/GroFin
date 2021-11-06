@@ -15,7 +15,7 @@ import com.grofin.feature.dashboard.ViewPagerFragmentAdapter
 import com.grofin.feature.dashboard.network.NetworkFragment
 import com.grofin.feature.dashboard.rewards.RewardsFragment
 import com.grofin.feature.dashboard.service.ServiceFragment
-import com.grofin.feature.request.User
+import com.grofin.feature.response.CategoriesResponse
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     companion object {
@@ -77,20 +77,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     override fun initViews() {
-
+        viewModel.apiCategories
     }
 
     override fun setUpObserver() {
-        observe(viewModel.apiUser, ::onUserSuccess)
+        observe(viewModel.apiCategories, ::onCategoriesResponseSuccess)
     }
 
     override fun initListener() {
-//            viewModel.getSingleUser()
+
     }
 
-    private fun onUserSuccess(event: SingleEvent<User>) {
+    private fun onCategoriesResponseSuccess(event: SingleEvent<CategoriesResponse>) {
         event.contentIfNotHandled?.let {
-            showToastMessage(it.data?.email)
+            if (it.success) {
+
+            } else
+                showToastMessage(it.message)
         }
     }
 }
