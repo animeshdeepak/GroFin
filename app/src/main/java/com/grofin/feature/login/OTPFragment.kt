@@ -11,6 +11,8 @@ import com.grofin.base.extensions.*
 import com.grofin.databinding.OtpFragmentBinding
 import com.grofin.feature.dashboard.HomeActivity
 import com.grofin.feature.response.OTPResponse
+import com.grofin.feature.response.ResendOTPResponse
+import com.grofin.feature.response.UserResponse
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import java.util.concurrent.TimeUnit
@@ -70,8 +72,7 @@ class OTPFragment : BaseFragment<OtpFragmentBinding, LoginViewModel>() {
         }
 
         binding.resendTv.setOnClickListener {
-//            TODO("handle resend API")
-            "resend clicked!".showToast(requireContext())
+            viewModel.resendOTP(args.id)
             startResendCountDownTimer()
         }
     }
@@ -79,6 +80,8 @@ class OTPFragment : BaseFragment<OtpFragmentBinding, LoginViewModel>() {
     override fun setUpObserver() {
         observe(viewModel.otpListener, ::onOTPChange)
         observe(viewModel.apiOTP, ::onOTPResponseSuccess)
+        observe(viewModel.apiResendOTP, ::onResendOTPResponseSuccess)
+        observe(viewModel.apiUser, ::onUserResponseSuccess)
     }
 
     private fun onOTPChange(otp: String) {
@@ -111,10 +114,32 @@ class OTPFragment : BaseFragment<OtpFragmentBinding, LoginViewModel>() {
         if (isAdded && isVisible && activity != null)
             event.contentIfNotHandled?.let {
                 if (it.success) {
-                    launchHomeActivity()
+                    viewModel.getUser()
                 } else
                     showToastMessage(it.message)
             }
+    }
+
+    private fun onResendOTPResponseSuccess(event: SingleEvent<ResendOTPResponse>) {
+        if (isAdded && isVisible && activity != null) {
+            event.contentIfNotHandled?.let {
+                if (it.success) {
+                    /**
+                     * TODO(handle resend otp response)
+                     */
+                } else
+                    showToastMessage(it.message)
+            }
+        }
+    }
+
+    private fun onUserResponseSuccess(event: SingleEvent<UserResponse>) {
+        event.contentIfNotHandled?.let {
+            if (it.success)
+                launchHomeActivity()
+            else
+                showToastMessage(it.message)
+        }
     }
 
     private fun launchHomeActivity() {

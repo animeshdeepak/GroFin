@@ -4,9 +4,8 @@ import com.grofin.base.service.LoginRegisterService
 import com.grofin.feature.request.LoginRequest
 import com.grofin.feature.request.OTPRequest
 import com.grofin.feature.request.RegisterRequest
-import com.grofin.feature.response.LoginResponse
-import com.grofin.feature.response.OTPResponse
-import com.grofin.feature.response.RegisterResponse
+import com.grofin.feature.request.ResendOTPRequest
+import com.grofin.feature.response.*
 import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject
 
@@ -14,4 +13,6 @@ class LoginRegisterRepoImpl @Inject constructor(private val service: LoginRegist
     override fun register(request: RegisterRequest): Single<RegisterResponse> = service.register(request)
     override fun login(request: LoginRequest): Single<LoginResponse> = service.login(request)
     override fun validateOTP(request: OTPRequest): Single<OTPResponse> = service.validateOTP(request)
+    override fun getUser(authorization: String?): Single<UserResponse> = service.getUser(authorization)
+    override fun resendOTP(request: ResendOTPRequest): Single<ResendOTPResponse> = service.resendOTP(request)
 }

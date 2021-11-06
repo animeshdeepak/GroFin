@@ -4,7 +4,7 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 /**
- * login/register response
+ * login/register response/resend otp
  */
 data class Data(
     @SerializedName("id")

@@ -12,9 +12,8 @@ import com.grofin.base.repo.LoginRegisterRepo
 import com.grofin.feature.request.LoginRequest
 import com.grofin.feature.request.OTPRequest
 import com.grofin.feature.request.RegisterRequest
-import com.grofin.feature.response.LoginResponse
-import com.grofin.feature.response.OTPResponse
-import com.grofin.feature.response.RegisterResponse
+import com.grofin.feature.request.ResendOTPRequest
+import com.grofin.feature.response.*
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
@@ -45,6 +44,14 @@ class LoginViewModel @Inject constructor(private val loginRegisterRepo: LoginReg
     private var _apiOTP = MutableLiveData<SingleEvent<OTPResponse>>()
     val apiOTP: LiveData<SingleEvent<OTPResponse>>
         get() = _apiOTP
+
+    private var _apiResendOTP = MutableLiveData<SingleEvent<ResendOTPResponse>>()
+    val apiResendOTP: LiveData<SingleEvent<ResendOTPResponse>>
+        get() = _apiResendOTP
+
+    private var _apiUser = MutableLiveData<SingleEvent<UserResponse>>()
+    val apiUser: LiveData<SingleEvent<UserResponse>>
+        get() = _apiUser
 
     fun registerDataValidation(): Boolean {
         return if (
@@ -108,6 +115,37 @@ class LoginViewModel @Inject constructor(private val loginRegisterRepo: LoginReg
                     it.data?.token?.let { token ->
                         sharedPrefHelper.saveToken(token)
                     }
+                }, {
+                    _isLoading.postValue(SingleEvent(ApiStatus.FAILURE))
+                    setError(it)
+                })
+        )
+    }
+
+    fun resendOTP(id: Int) {
+        val request = ResendOTPRequest(id)
+        _isLoading.postValue(SingleEvent(ApiStatus.LOADING))
+        addDisposable(
+            loginRegisterRepo.resendOTP(request)
+                .subscribeOn(Schedulers.io())
+                .subscribe({
+                    _isLoading.postValue(SingleEvent(ApiStatus.SUCCESS))
+                    _apiResendOTP.postValue(SingleEvent(it))
+                }, {
+                    _isLoading.postValue(SingleEvent(ApiStatus.FAILURE))
+                    setError(it)
+                })
+        )
+    }
+
+    fun getUser() {
+        _isLoading.postValue(SingleEvent(ApiStatus.LOADING))
+        addDisposable(
+            loginRegisterRepo.getUser(sharedPrefHelper.getToken())
+                .subscribeOn(Schedulers.io())
+                .subscribe({
+                    _isLoading.postValue(SingleEvent(ApiStatus.SUCCESS))
+                    _apiUser.postValue(SingleEvent(it))
                 }, {
                     _isLoading.postValue(SingleEvent(ApiStatus.FAILURE))
                     setError(it)

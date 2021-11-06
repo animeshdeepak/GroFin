@@ -3,7 +3,9 @@ package com.grofin.base.di.module
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.grofin.base.SharedPrefHelper
 import com.grofin.base.networking.*
+import com.grofin.base.networking.qualifier.AuthUrlAPI
 import com.grofin.base.service.LoginRegisterService
 import com.grofin.base.service.SplashService
 import dagger.Module
@@ -33,7 +35,6 @@ class NetworkModule(private val baseUrl: String) {
             level = HttpLoggingInterceptor.Level.BODY
         }
         return arrayListOf<Interceptor>().apply {
-            add(HeaderInterceptor())
             add(logging)
             add(ConnectivityInterceptor(context))
         }
@@ -85,11 +86,56 @@ class NetworkModule(private val baseUrl: String) {
 
     @Singleton
     @Provides
+    @AuthUrlAPI
+    fun provideRetrofitInstanceWithAuthToken(
+        context: Context,
+        serializationStrategy: SerializationStrategy,
+        deserializationStrategy: DeserializationStrategy,
+        sharedPrefHelper: SharedPrefHelper
+    ): Retrofit {
+        val logging = HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.HEADERS
+            level = HttpLoggingInterceptor.Level.BODY
+        }
+
+        val commonInterceptor = arrayListOf<Interceptor>().apply {
+            add(HeaderInterceptor(sharedPrefHelper))
+            add(logging)
+            add(ConnectivityInterceptor(context))
+        }
+
+        val okHttpClientBuilder = OkHttpClient.Builder().apply {
+            connectTimeout(CONNECT_TIME_OUT_SECONDS, TimeUnit.SECONDS)
+            readTimeout(READ_TIME_OUT_SECONDS, TimeUnit.SECONDS)
+            writeTimeout(WRITE_TIME_OUT_SECONDS, TimeUnit.SECONDS)
+        }
+//        add common interceptor
+        if (commonInterceptor.isNotEmpty())
+            commonInterceptor.forEach {
+                okHttpClientBuilder.addInterceptor(it)
+            }
+
+        val gson = GsonBuilder()
+            .setLenient()
+            .addSerializationExclusionStrategy(serializationStrategy)
+            .addDeserializationExclusionStrategy(deserializationStrategy)
+            .create()
+
+        return Retrofit.Builder()
+            .client(okHttpClientBuilder.build())
+            .baseUrl(baseUrl)
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+            .build()
+    }
+
+    @Singleton
+    @Provides
     fun provideSplashService(retrofit: Retrofit): SplashService =
         SplashService(retrofit.create(AppApis::class.java))
 
     @Singleton
     @Provides
-    fun provideLoginRegisterService(retrofit: Retrofit): LoginRegisterService =
-        LoginRegisterService(retrofit.create(AppApis::class.java))
+    fun provideLoginRegisterService(retrofit: Retrofit, @AuthUrlAPI authRetrofit: Retrofit): LoginRegisterService =
+        LoginRegisterService(retrofit.create(AppApis::class.java), authRetrofit.create(AppApis::class.java))
 }
