@@ -8,7 +8,7 @@ import com.grofin.feature.dashboard.service.model.ServiceModel
 
 class ServiceAdapter(private val serviceList: ArrayList<ServiceModel>) :
     RecyclerView.Adapter<ServiceAdapter.ServiceViewHolder>() {
-    var onItemClick: ((serviceName: String, serviceUrl: String) -> Unit)? = null
+    var onItemClick: ((serviceName: String) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServiceViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -28,7 +28,7 @@ class ServiceAdapter(private val serviceList: ArrayList<ServiceModel>) :
             binding.apply {
                 grofinItem = perItem
                 binding.item.setOnClickListener {
-                    onItemClick?.invoke(perItem.serviceName, perItem.serviceUrl)
+                    onItemClick?.invoke(perItem.serviceName)
                 }
                 executePendingBindings()
             }

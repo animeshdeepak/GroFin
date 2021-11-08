@@ -1,6 +1,5 @@
 package com.grofin.feature.dashboard.service
 
-import android.content.Intent
 import android.os.Bundle
 import com.grofin.R
 import com.grofin.base.base.BaseFragment
@@ -9,7 +8,6 @@ import com.grofin.databinding.FragmentServiceBinding
 import com.grofin.feature.dashboard.service.adapter.ItemDecorationAlbumColumns
 import com.grofin.feature.dashboard.service.adapter.ServiceAdapter
 import com.grofin.feature.dashboard.service.model.ServiceModel
-import com.grofin.feature.webview.WebViewActivity
 
 class ServiceFragment : BaseFragment<FragmentServiceBinding, ServiceViewModel>() {
     private lateinit var serviceAdapter: ServiceAdapter
@@ -44,13 +42,12 @@ class ServiceFragment : BaseFragment<FragmentServiceBinding, ServiceViewModel>()
                 )
             )
             adapter = serviceAdapter
-            serviceAdapter.onItemClick = { name, url ->
-                Intent(requireContext(), WebViewActivity::class.java).apply {
+            serviceAdapter.onItemClick = { name ->
+/*                Intent(requireContext(), WebViewActivity::class.java).apply {
                     putExtra(WebViewActivity.WEB_VIEW_TITLE, name)
-                    putExtra(WebViewActivity.WEB_VIEW_URL, url)
                 }.run {
                     startActivity(this)
-                }
+                }*/
             }
         }
     }
