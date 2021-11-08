@@ -115,6 +115,10 @@ class OTPFragment : BaseFragment<OtpFragmentBinding, LoginViewModel>() {
             event.contentIfNotHandled?.let {
                 if (it.success) {
                     viewModel.getUser()
+                    /**
+                     * TODO(change in future add below line to getuser response)
+                     */
+                    launchHomeActivity()
                 } else
                     showToastMessage(it.message)
             }
