@@ -77,7 +77,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     override fun initViews() {
-        viewModel.apiCategories
+        viewModel.getCategories()
     }
 
     override fun setUpObserver() {
