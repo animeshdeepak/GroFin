@@ -1,10 +1,11 @@
 package com.grofin.base.di.module
 
 import com.grofin.base.di.qualifire.PerFragment
-import com.grofin.feature.dashboard.ui.HomeFragment
 import com.grofin.feature.dashboard.network.NetworkFragment
 import com.grofin.feature.dashboard.rewards.RewardsFragment
 import com.grofin.feature.dashboard.service.ServiceFragment
+import com.grofin.feature.dashboard.servicedetail.ServiceDetailFragment
+import com.grofin.feature.dashboard.ui.HomeFragment
 import com.grofin.feature.login.LoginFragment
 import com.grofin.feature.login.OTPFragment
 import com.grofin.feature.register.RegisterFragment
@@ -45,4 +46,8 @@ internal abstract class FragmentModule {
     @ContributesAndroidInjector
     @PerFragment
     abstract fun serviceFragment(): ServiceFragment
+
+    @ContributesAndroidInjector
+    @PerFragment
+    abstract fun serviceDetailFragment(): ServiceDetailFragment
 }

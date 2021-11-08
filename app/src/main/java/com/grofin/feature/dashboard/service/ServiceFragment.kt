@@ -8,6 +8,7 @@ import com.grofin.databinding.FragmentServiceBinding
 import com.grofin.feature.dashboard.service.adapter.ItemDecorationAlbumColumns
 import com.grofin.feature.dashboard.service.adapter.ServiceAdapter
 import com.grofin.feature.dashboard.service.model.ServiceModel
+import com.grofin.feature.dashboard.ui.HomeFragmentDirections
 
 class ServiceFragment : BaseFragment<FragmentServiceBinding, ServiceViewModel>() {
     private lateinit var serviceAdapter: ServiceAdapter
@@ -25,6 +26,7 @@ class ServiceFragment : BaseFragment<FragmentServiceBinding, ServiceViewModel>()
     override fun executeOnlyOnce() {
         initViews()
         initListener()
+        setUpObserver()
     }
 
     override fun initViews() {
@@ -48,6 +50,11 @@ class ServiceFragment : BaseFragment<FragmentServiceBinding, ServiceViewModel>()
                 }.run {
                     startActivity(this)
                 }*/
+
+                navController().currentDestination?.getAction(R.id.action_homeFragment_to_serviceDetailFragment)?.let {
+                    val action = HomeFragmentDirections.actionHomeFragmentToServiceDetailFragment(name)
+                    navController().navigate(action)
+                }
             }
         }
     }
