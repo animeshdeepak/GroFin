@@ -3,15 +3,13 @@ package com.grofin.feature.dashboard.service
 import android.os.Bundle
 import com.grofin.R
 import com.grofin.base.base.BaseFragment
-import com.grofin.base.constants.Constants
 import com.grofin.base.extensions.SingleEvent
 import com.grofin.base.extensions.observe
 import com.grofin.databinding.FragmentServiceBinding
-import com.grofin.feature.dashboard.service.adapter.ItemDecorationAlbumColumns
 import com.grofin.feature.dashboard.service.adapter.ServiceAdapter
-import com.grofin.feature.dashboard.service.model.ServiceModel
 import com.grofin.feature.dashboard.ui.HomeFragmentDirections
 import com.grofin.feature.response.CategoriesResponse
+import com.grofin.feature.response.Category
 
 class ServiceFragment : BaseFragment<FragmentServiceBinding, ServiceViewModel>() {
     private lateinit var serviceAdapter: ServiceAdapter
@@ -37,32 +35,21 @@ class ServiceFragment : BaseFragment<FragmentServiceBinding, ServiceViewModel>()
         viewModel.getCategories()
     }
 
-    private fun setUpRecyclerView() {
+    private fun setUpRecyclerView(categoriesList: ArrayList<Category>?) {
         binding.rvServices.apply {
-            serviceAdapter = ServiceAdapter(getServiceModelList())
+            serviceAdapter = ServiceAdapter(categoriesList)
             setHasFixedSize(true)
-            addItemDecoration(
+            /*addItemDecoration(
                 ItemDecorationAlbumColumns(
                     resources.getDimensionPixelSize(R.dimen.photos_list_spacing),
                     resources.getInteger(R.integer.photo_list_preview_columns)
                 )
-            )
+            )*/
             adapter = serviceAdapter
-            serviceAdapter.onItemClick = { serviceName ->
-                navigateToServiceDetailFragment(serviceName)
+            serviceAdapter.onItemClick = { id, name ->
+                navigateToServiceDetailFragment(id, name)
             }
         }
-    }
-
-    private fun getServiceModelList(): ArrayList<ServiceModel> {
-        val list = ArrayList<ServiceModel>()
-        list.add(ServiceModel("", "Insurance", Constants.MOTORS_URL, R.drawable.insurance))
-        list.add(ServiceModel("", "Instant Loan", Constants.MOTORS_URL, R.drawable.insurance))
-        list.add(ServiceModel("", "Credit Card", "", R.drawable.insurance))
-        list.add(ServiceModel("", "Download and Earn", "", R.drawable.insurance))
-        list.add(ServiceModel("", "Investment", "", R.drawable.insurance))
-        list.add(ServiceModel("", "Tax Planning", "", R.drawable.insurance))
-        return list
     }
 
     override fun initListener() {
@@ -73,11 +60,13 @@ class ServiceFragment : BaseFragment<FragmentServiceBinding, ServiceViewModel>()
         observe(viewModel.apiCategories, ::onCategoriesResponseSuccess)
     }
 
-    private fun navigateToServiceDetailFragment(serviceName: String?) {
-        navController().currentDestination?.getAction(R.id.action_homeFragment_to_serviceDetailFragment)?.let {
-            val action = HomeFragmentDirections.actionHomeFragmentToServiceDetailFragment(serviceName)
-            navController().navigate(action)
-        }
+    private fun navigateToServiceDetailFragment(id: Int, serviceName: String?) {
+        navController().currentDestination?.getAction(R.id.action_homeFragment_to_serviceDetailFragment)
+            ?.let {
+                val action =
+                    HomeFragmentDirections.actionHomeFragmentToServiceDetailFragment(serviceName)
+                navController().navigate(action)
+            }
     }
 
     private fun onCategoriesResponseSuccess(event: SingleEvent<CategoriesResponse>) {
@@ -87,7 +76,7 @@ class ServiceFragment : BaseFragment<FragmentServiceBinding, ServiceViewModel>()
                     viewModel.isRVVisible.value = false
                 else {
                     viewModel.isRVVisible.value = true
-                    setUpRecyclerView()
+                    setUpRecyclerView(it.data?.categoriesList)
                 }
             } else
                 showToastMessage(it.message)

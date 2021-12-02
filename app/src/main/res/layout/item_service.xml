@@ -6,11 +6,11 @@
     <data>
 
         <variable
-            name="grofinItem"
-            type="com.grofin.feature.dashboard.service.model.ServiceModel" />
+            name="category"
+            type="com.grofin.feature.response.Category" />
     </data>
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,12 +18,11 @@
 
         <ImageView
             android:id="@+id/iv_service"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerInParent="true"
-            android:scaleType="fitCenter"
-            app:imageResource="@{grofinItem.imageResourceId}"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription"
             tools:src="@drawable/insurance" />
 
@@ -31,14 +30,16 @@
             android:id="@+id/tv_service_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/iv_service"
-            android:layout_centerHorizontal="true"
-            android:gravity="center_horizontal"
             android:fontFamily="@font/montserrat_regular"
-            android:text="@{grofinItem.serviceName}"
+            android:text="@{category.name}"
             android:textColor="@color/black"
             android:textSize="12sp"
-            tools:text="Insurance Insurance" />
+            android:gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="@id/iv_service"
+            app:layout_constraintStart_toStartOf="@id/iv_service"
+            app:layout_constraintTop_toBottomOf="@id/iv_service"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Health Insurance" />
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

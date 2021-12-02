@@ -15,3 +15,9 @@ fun ImageView.loadImage(url: String?, placeholderImage: Int, errorImage: Int) {
         e.printStackTrace()
     }
 }
+
+fun ImageView.loadImage(url: String?) {
+    Glide.with(this)
+        .load(url)
+        .into(this)
+}
