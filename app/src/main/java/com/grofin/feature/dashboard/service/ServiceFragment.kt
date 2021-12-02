@@ -4,11 +4,14 @@ import android.os.Bundle
 import com.grofin.R
 import com.grofin.base.base.BaseFragment
 import com.grofin.base.constants.Constants
+import com.grofin.base.extensions.SingleEvent
+import com.grofin.base.extensions.observe
 import com.grofin.databinding.FragmentServiceBinding
 import com.grofin.feature.dashboard.service.adapter.ItemDecorationAlbumColumns
 import com.grofin.feature.dashboard.service.adapter.ServiceAdapter
 import com.grofin.feature.dashboard.service.model.ServiceModel
 import com.grofin.feature.dashboard.ui.HomeFragmentDirections
+import com.grofin.feature.response.CategoriesResponse
 
 class ServiceFragment : BaseFragment<FragmentServiceBinding, ServiceViewModel>() {
     private lateinit var serviceAdapter: ServiceAdapter
@@ -30,7 +33,8 @@ class ServiceFragment : BaseFragment<FragmentServiceBinding, ServiceViewModel>()
     }
 
     override fun initViews() {
-        setUpRecyclerView()
+        binding.vm = viewModel
+        viewModel.getCategories()
     }
 
     private fun setUpRecyclerView() {
@@ -44,17 +48,8 @@ class ServiceFragment : BaseFragment<FragmentServiceBinding, ServiceViewModel>()
                 )
             )
             adapter = serviceAdapter
-            serviceAdapter.onItemClick = { name ->
-/*                Intent(requireContext(), WebViewActivity::class.java).apply {
-                    putExtra(WebViewActivity.WEB_VIEW_TITLE, name)
-                }.run {
-                    startActivity(this)
-                }*/
-
-                navController().currentDestination?.getAction(R.id.action_homeFragment_to_serviceDetailFragment)?.let {
-                    val action = HomeFragmentDirections.actionHomeFragmentToServiceDetailFragment(name)
-                    navController().navigate(action)
-                }
+            serviceAdapter.onItemClick = { serviceName ->
+                navigateToServiceDetailFragment(serviceName)
             }
         }
     }
@@ -75,6 +70,27 @@ class ServiceFragment : BaseFragment<FragmentServiceBinding, ServiceViewModel>()
     }
 
     override fun setUpObserver() {
+        observe(viewModel.apiCategories, ::onCategoriesResponseSuccess)
+    }
 
+    private fun navigateToServiceDetailFragment(serviceName: String?) {
+        navController().currentDestination?.getAction(R.id.action_homeFragment_to_serviceDetailFragment)?.let {
+            val action = HomeFragmentDirections.actionHomeFragmentToServiceDetailFragment(serviceName)
+            navController().navigate(action)
+        }
+    }
+
+    private fun onCategoriesResponseSuccess(event: SingleEvent<CategoriesResponse>) {
+        event.contentIfNotHandled?.let {
+            if (it.success) {
+                if (it.data?.categoriesList == null || it.data?.categoriesList?.size == 0)
+                    viewModel.isRVVisible.value = false
+                else {
+                    viewModel.isRVVisible.value = true
+                    setUpRecyclerView()
+                }
+            } else
+                showToastMessage(it.message)
+        }
     }
 }

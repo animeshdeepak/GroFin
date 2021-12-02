@@ -7,7 +7,7 @@ import com.grofin.base.base.BaseResponse
 data class CategoriesResponse(
     @SerializedName("data")
     @Expose
-    var data: CategoriesData,
+    var data: CategoriesData? = null,
 ) : BaseResponse()
 
 data class CategoriesData(

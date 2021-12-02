@@ -3,7 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data />
+    <data>
+
+        <variable
+            name="vm"
+            type="com.grofin.feature.dashboard.service.ServiceViewModel" />
+
+        <import type="android.view.View" />
+    </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -27,10 +34,24 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/services_tv"
             android:layout_marginTop="20dp"
+            android:visibility="@{vm.isRVVisible ? View.VISIBLE : View.GONE}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="3"
             tools:itemCount="6"
             tools:listitem="@layout/item_service" />
+
+        <TextView
+            android:id="@+id/no_service_avail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rv_services"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="70dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/no_service_available"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:visibility="@{vm.isRVVisible ? View.GONE : View.VISIBLE}" />
 
     </RelativeLayout>
 </layout>

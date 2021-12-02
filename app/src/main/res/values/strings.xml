@@ -49,5 +49,10 @@
     <string name="referral_optional">(optional)</string>
     <string name="terms_n_conditions_msg">I agree with Terms &amp; Conditions</string>
     <string name="services">Services</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
+    <string name="vehicle_no">Vehicle No.</string>
+    <string name="pick_a_date_to_get_a_call">Pick a date to get a call</string>
+    <string name="no_service_available">No Service Available</string>
 
 </resources>

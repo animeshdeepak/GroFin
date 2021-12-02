@@ -7,15 +7,12 @@ import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.material.tabs.TabLayoutMediator
 import com.grofin.R
 import com.grofin.base.base.BaseFragment
-import com.grofin.base.extensions.SingleEvent
-import com.grofin.base.extensions.observe
 import com.grofin.databinding.FragmentHomeBinding
 import com.grofin.feature.dashboard.HomeViewModel
 import com.grofin.feature.dashboard.ViewPagerFragmentAdapter
 import com.grofin.feature.dashboard.network.NetworkFragment
 import com.grofin.feature.dashboard.rewards.RewardsFragment
 import com.grofin.feature.dashboard.service.ServiceFragment
-import com.grofin.feature.response.CategoriesResponse
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     companion object {
@@ -76,24 +73,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         }.attach()
     }
 
-    override fun initViews() {
-        viewModel.getCategories()
-    }
+    override fun initViews() {}
 
-    override fun setUpObserver() {
-        observe(viewModel.apiCategories, ::onCategoriesResponseSuccess)
-    }
+    override fun setUpObserver() {}
 
     override fun initListener() {
 
-    }
-
-    private fun onCategoriesResponseSuccess(event: SingleEvent<CategoriesResponse>) {
-        event.contentIfNotHandled?.let {
-            if (it.success) {
-
-            } else
-                showToastMessage(it.message)
-        }
     }
 }
