@@ -142,6 +142,6 @@ class NetworkModule(private val baseUrl: String) {
 
     @Singleton
     @Provides
-    fun provideHomeService(@AuthUrlAPI authRetrofit: Retrofit): HomeService =
-        HomeService(authRetrofit.create(AppApis::class.java))
+    fun provideHomeService(retrofit: Retrofit): HomeService =
+        HomeService(retrofit.create(AppApis::class.java))
 }
