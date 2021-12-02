@@ -6,7 +6,10 @@ import com.grofin.feature.request.RegisterRequest
 import com.grofin.feature.request.ResendOTPRequest
 import com.grofin.feature.response.*
 import io.reactivex.rxjava3.core.Single
-import retrofit2.http.*
+import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.Query
 import javax.inject.Singleton
 
 @Singleton
@@ -21,7 +24,7 @@ interface AppApis {
     fun validateOTP(@Body request: OTPRequest): Single<OTPResponse>
 
     @GET(AppEndPoints.ENDPOINT_USER)
-    fun getUser(@Header("Token") authorization: String?): Single<UserResponse>
+    fun getUser(): Single<UserResponse>
 
     @POST(AppEndPoints.ENDPOINT_RESEND_OTP)
     fun resendOTP(@Body request: ResendOTPRequest): Single<ResendOTPResponse>

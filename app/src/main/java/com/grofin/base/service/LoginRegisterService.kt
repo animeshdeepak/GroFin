@@ -15,6 +15,6 @@ class LoginRegisterService(private val api: AppApis, @AuthUrlAPI private val aut
     fun register(request: RegisterRequest): Single<RegisterResponse> = api.register(request)
     fun login(request: LoginRequest): Single<LoginResponse> = api.login(request)
     fun validateOTP(request: OTPRequest): Single<OTPResponse> = api.validateOTP(request)
-    fun getUser(authorization: String?): Single<UserResponse> = authApi.getUser(authorization)
+    fun getUser(): Single<UserResponse> = authApi.getUser()
     fun resendOTP(request: ResendOTPRequest): Single<ResendOTPResponse> = api.resendOTP(request)
 }

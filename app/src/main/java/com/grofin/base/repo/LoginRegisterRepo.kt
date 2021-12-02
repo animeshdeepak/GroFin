@@ -11,6 +11,6 @@ interface LoginRegisterRepo {
     fun register(request: RegisterRequest): Single<RegisterResponse>
     fun login(request: LoginRequest): Single<LoginResponse>
     fun validateOTP(request: OTPRequest): Single<OTPResponse>
-    fun getUser(authorization: String?): Single<UserResponse>
+    fun getUser(): Single<UserResponse>
     fun resendOTP(request: ResendOTPRequest): Single<ResendOTPResponse>
 }

@@ -13,6 +13,6 @@ class LoginRegisterRepoImpl @Inject constructor(private val service: LoginRegist
     override fun register(request: RegisterRequest): Single<RegisterResponse> = service.register(request)
     override fun login(request: LoginRequest): Single<LoginResponse> = service.login(request)
     override fun validateOTP(request: OTPRequest): Single<OTPResponse> = service.validateOTP(request)
-    override fun getUser(authorization: String?): Single<UserResponse> = service.getUser(authorization)
+    override fun getUser(): Single<UserResponse> = service.getUser()
     override fun resendOTP(request: ResendOTPRequest): Single<ResendOTPResponse> = service.resendOTP(request)
 }

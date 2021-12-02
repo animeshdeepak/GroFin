@@ -141,7 +141,7 @@ class LoginViewModel @Inject constructor(private val loginRegisterRepo: LoginReg
     fun getUser() {
         _isLoading.postValue(SingleEvent(ApiStatus.LOADING))
         addDisposable(
-            loginRegisterRepo.getUser(sharedPrefHelper.getToken())
+            loginRegisterRepo.getUser()
                 .subscribeOn(Schedulers.io())
                 .subscribe({
                     _isLoading.postValue(SingleEvent(ApiStatus.SUCCESS))
