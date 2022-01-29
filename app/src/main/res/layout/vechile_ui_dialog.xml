@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="300dp"
+        android:minHeight="150dp"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/vehicle_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/vehicle_no"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/vehicle_et"
+            style="@style/EditTextDialogStyle"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:importantForAutofill="no"
+            android:inputType="textCapCharacters"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:textAllCaps="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vehicle_tv"
+            tools:ignore="LabelFor" />
+
+        <TextView
+            android:id="@+id/date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/pick_a_date_to_get_a_call"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vehicle_et" />
+
+        <EditText
+            android:id="@+id/date_et"
+            style="@style/EditTextDialogStyle"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:importantForAutofill="no"
+            android:inputType="date"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/date_tv"
+            tools:ignore="LabelFor" />
+
+        <Button
+            android:id="@+id/cancel_btn"
+            style="@style/ThemeDialogButton"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/cancel"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@+id/ok_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/date_et" />
+
+        <Button
+            android:id="@+id/ok_btn"
+            style="@style/ThemeDialogButton"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/grofin_green"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/ok"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cancel_btn"
+            app:layout_constraintTop_toBottomOf="@id/date_et" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

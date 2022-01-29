@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/background_theme.xml" value="0.1712962962962963" />
         <entry key="app/src/main/res/drawable/button_rounded.xml" value="0.1712962962962963" />
         <entry key="app/src/main/res/drawable/dummy_logo.xml" value="0.1675925925925926" />
+        <entry key="app/src/main/res/drawable/edit_text_dialog.xml" value="0.2824074074074074" />
         <entry key="app/src/main/res/drawable/edit_text_rounded.xml" value="0.1712962962962963" />
+        <entry key="app/src/main/res/drawable/error_edit_text_rounded.xml" value="0.19722222222222222" />
         <entry key="app/src/main/res/drawable/grofin_background.xml" value="0.18981481481481483" />
         <entry key="app/src/main/res/drawable/ic_cancel.xml" value="0.19635416666666666" />
         <entry key="app/src/main/res/drawable/ic_group_6.xml" value="0.1" />
@@ -28,16 +31,19 @@
         <entry key="app/src/main/res/layout/custom_tab_item_3.xml" value="0.36231884057971014" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3797752808988764" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.16" />
-        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_rewards.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_service.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_service_detail.xml" value="0.2359375" />
         <entry key="app/src/main/res/layout/header_navigation_drawer.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_service.xml" value="0.4125" />
-        <entry key="app/src/main/res/layout/main_content.xml" value="0.4125" />
+        <entry key="app/src/main/res/layout/item_sub_service.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/main_content.xml" value="0.165" />
         <entry key="app/src/main/res/layout/otp_bottom_sheet_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/otp_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/progress_bar.xml" value="0.4125" />
         <entry key="app/src/main/res/layout/slide_item_container.xml" value="0.36231884057971014" />
+        <entry key="app/src/main/res/layout/vechile_ui_dialog.xml" value="0.39791666666666664" />
         <entry key="app/src/main/res/layout/web_view_toolbar.xml" value="0.4125" />
       </map>
     </option>
